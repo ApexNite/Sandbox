@@ -1,0 +1,10 @@
+{
+    "Name": "Sandbox",
+    "Author": "kenoli, ApexLite",
+    "Version": "1.0.1",
+    "Description": "",
+    "IconPath": "icon.png",
+    "Dependencies": [],
+    "OptionalDependencies": [],
+    "IncompatibleWith": []
+}
