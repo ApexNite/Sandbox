@@ -31,6 +31,8 @@
     "disable_culture_traits_description": "Stop certain traits from being added to cultures. Does not remove existing traits",
     "disable_language_traits_description": "Stop certain traits from being added to languages. Does not remove existing traits",
     "disable_religion_traits_description": "Stop certain traits from being added to religions. Does not remove existing traits",
+    "do_building_checks": "Do Building Checks",
+    "do_building_checks Description": "Enabled: buildings will not be placed on tiles that fail build checks\nDisabled: any building can be placed on any tile",
     "settle_selection": "Select a kingdom to create a new settlement",
     "settle_kingdom_selected": "$kingdom_name$ has been selected. Now select a tile to settle",
     "settle_cancelled": "Settle canceled",

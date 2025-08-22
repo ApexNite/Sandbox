@@ -1,0 +1,9 @@
+{
+    "building_constructor": [
+        {
+            "Id": "do_building_checks",
+            "Type": "SWITCH",
+            "BoolVal": false
+        }
+    ]
+}
