@@ -106,7 +106,7 @@ namespace Sandbox.UI {
                 .Build(out _makeUnitLeaderButton)
                 .Next("force_plot", ButtonStyle.Small)
                 .SetIcon("ui/icons/force_plot_icon")
-                .SetGodPower("force_unit_plot")
+                .SetGodPower("force_plot")
                 .Build(out _forcePlotButton)
                 .Next("settle_city", ButtonStyle.Small)
                 .SetIcon("ui/icons/settle_city_icon")

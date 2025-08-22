@@ -1,9 +1,9 @@
 ﻿namespace Sandbox.Features {
     internal class ForceUnitPlot {
         public static void Init() {
-            GodPower power = AssetManager.powers.clone("force_unit_plot", "$template_drops$");
+            GodPower power = AssetManager.powers.clone("force_plot", "$template_drops$");
             DropAsset dropAsset = AssetManager.drops.add(new DropAsset {
-                id = "force_unit_plot",
+                id = "force_plot",
                 path_texture = "drops/drop_gamma_rain",
                 random_frame = true,
                 default_scale = 0.1f,
@@ -13,8 +13,8 @@
                 type = DropType.DropGeneric
             });
 
-            power.name = "force_unit_plot";
-            power.drop_id = "force_unit_plot";
+            power.name = "force_plot";
+            power.drop_id = "force_plot";
             power.cached_drop_asset = dropAsset;
         }
 
