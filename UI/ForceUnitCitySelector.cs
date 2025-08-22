@@ -46,7 +46,7 @@ namespace Sandbox.UI {
         protected override void Init() {
             _vertLayoutGroup = this.BeginVertGroup();
             _forceCityButton = PowerButtonCreator.CreateGodPowerButton("force_unit_city",
-                SpriteTextureLoader.getSprite("ui/icons/force_unit_city"));
+                SpriteTextureLoader.getSprite("ui/icons/force_unit_city_icon"));
             _cityElementPrefab = new GameObject("CityElementPrefab", typeof(Image), typeof(Button),
                 typeof(CityVisualElement));
             _cityElements = new List<GameObject>();
