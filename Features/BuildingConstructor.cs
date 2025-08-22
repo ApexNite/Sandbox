@@ -14,10 +14,24 @@ namespace Sandbox.Features {
                 power.unselect_when_window = false;
                 power.cached_drop_asset = dropAsset;
                 dropAsset.building_asset = buildingAsset.id;
-                dropAsset.action_landed = DropsLibrary.action_spawn_building;
+                dropAsset.action_landed = SpawnBuilding;
             }
 
             BuildingConstructorSelector.CreateWindow("building_constructor", "building_constructor");
+        }
+
+        private static void SpawnBuilding(WorldTile worldTile = null, string dropId = null) {
+            string buildingAssetId = AssetManager.drops.get(dropId).building_asset;
+            BuildingAsset buildingAsset = AssetManager.buildings.get(buildingAssetId);
+            Building building = World.world.buildings.addBuilding(buildingAsset, worldTile);
+
+            if (building == null) {
+                EffectsLibrary.spawnAtTile("fx_bad_place", worldTile, 0.25f);
+
+                return;
+            }
+
+            buildingAsset.checkLimits(building);
         }
     }
 }
