@@ -29,7 +29,10 @@ namespace Sandbox.UI {
             }
 
             _selectedStat = statsIcon;
-            _beforeValue = (int) statsIcon._value;
+            _beforeValue = statsButton.name.Contains("lifespan")
+                ? (int) (statsIcon._value - Config.selected_subspecies.base_stats["lifespan"])
+                : (int) statsIcon._value;
+
             SetTextWithoutEvent(_beforeValue.ToString());
             _inputField.interactable = true;
             _iconImage.sprite = statsIcon.getIcon().sprite;
@@ -53,11 +56,11 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(Nucleus), nameof(Nucleus.recalculate))]
         [HarmonyPostfix]
         private static void Recalculate_Postfix(Nucleus __instance) {
-            if (!LockedStats.ContainsKey(__instance.GetHashCode())) {
+            int hashCode = __instance.GetHashCode();
+
+            if (!LockedStats.TryGetValue(hashCode, out Dictionary<string, int> lockedStats)) {
                 return;
             }
-
-            Dictionary<string, int> lockedStats = LockedStats[__instance.GetHashCode()];
 
             foreach (KeyValuePair<string, int> lockedStat in lockedStats) {
                 if (lockedStat.Key == "i_lifespan_male") {
@@ -112,9 +115,11 @@ namespace Sandbox.UI {
             Config.selected_subspecies.recalcBaseStats();
 
             if (_selectedStat.name == "i_lifespan_male") {
-                _selectedStat.setValue(Config.selected_subspecies.nucleus._merged_base_stats_male["lifespan"]);
+                _selectedStat.setValue(Config.selected_subspecies.base_stats_male["lifespan"]
+                                       + Config.selected_subspecies.base_stats["lifespan"]);
             } else if (_selectedStat.name == "i_lifespan_female") {
-                _selectedStat.setValue(Config.selected_subspecies.nucleus._merged_base_stats_female["lifespan"]);
+                _selectedStat.setValue(Config.selected_subspecies.nucleus._merged_base_stats_female["lifespan"]
+                                       + Config.selected_subspecies.base_stats["lifespan"]);
             } else {
                 string statId = _selectedStat.name.Replace("i_", "").Replace("mutation_rate", "mutation");
 
@@ -143,6 +148,11 @@ namespace Sandbox.UI {
             LockedStats[hashCode][_selectedStat.name] = afterValue;
             Config.selected_subspecies.nucleus.recalculate();
             Config.selected_subspecies.recalcBaseStats();
+
+            if (_selectedStat.name.Contains("lifespan")) {
+                afterValue += (int) Config.selected_subspecies.base_stats["lifespan"];
+            }
+
             _selectedStat.setValue(afterValue);
             _unlockButton.SetActive(true);
             _unlockButtonPlaceholder.SetActive(false);
