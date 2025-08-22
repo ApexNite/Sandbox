@@ -114,6 +114,7 @@
     <Content Include="icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="default_config.json" />
     <None Include="Locales\en.json" />
     <None Include="mod.json" />
   </ItemGroup>

@@ -22,8 +22,9 @@ namespace Sandbox.Features {
 
         private static void SpawnBuilding(WorldTile worldTile = null, string dropId = null) {
             string buildingAssetId = AssetManager.drops.get(dropId).building_asset;
+            bool doBuildingChecks = Main.Instance.GetConfig()["building_constructor"]["do_building_checks"].BoolVal;
             BuildingAsset buildingAsset = AssetManager.buildings.get(buildingAssetId);
-            Building building = World.world.buildings.addBuilding(buildingAsset, worldTile);
+            Building building = World.world.buildings.addBuilding(buildingAsset, worldTile, doBuildingChecks);
 
             if (building == null) {
                 EffectsLibrary.spawnAtTile("fx_bad_place", worldTile, 0.25f);
