@@ -20,9 +20,12 @@
 
         private static void ForcePlot(WorldTile worldTile, string dropId) {
             foreach (Actor actor in Finder.getUnitsFromChunk(worldTile, 1, 3f)) {
-                if (actor.hasPlot()) {
-                    actor.plot.finishPlot(PlotState.Finished, actor);
+                if (!actor.hasPlot()) {
+                    continue;
                 }
+
+                actor.plot.data.progress_current = actor.plot.getProgressMax();
+                actor.plot.updateProgressTarget(actor, actor.stats["intelligence"]);
             }
         }
     }
