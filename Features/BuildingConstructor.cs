@@ -3,6 +3,8 @@
 namespace Sandbox.Features {
     internal class BuildingConstructor {
         public static void Init() {
+            UpdateAssets();
+
             BuildingConstructorSelector.CreateWindow("building_constructor", "building_constructor");
         }
 
