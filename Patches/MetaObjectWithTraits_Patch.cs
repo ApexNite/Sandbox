@@ -43,7 +43,9 @@ namespace Sandbox.Patches {
 
         private static bool AddTraits_Prefix(GenericBaseTrait pTrait, bool pRemoveOpposites, ref bool __result) {
             if (pTrait.GetType() == typeof(ClanTrait) && DisableClanTraitsEnabled) {
-                if (!PlayerConfig.optionBoolEnabled($"{pTrait.id}_clan_trait_toggle")) {
+                string id = $"{pTrait.id}_clan_trait_toggle";
+
+                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
                     __result = false;
 
                     return false;
@@ -53,7 +55,9 @@ namespace Sandbox.Patches {
             }
 
             if (pTrait.GetType() == typeof(CultureTrait) && DisableCultureTraitsEnabled) {
-                if (!PlayerConfig.optionBoolEnabled($"{pTrait.id}_culture_trait_toggle")) {
+                string id = $"{pTrait.id}_culture_trait_toggle";
+
+                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
                     __result = false;
 
                     return false;
@@ -63,7 +67,9 @@ namespace Sandbox.Patches {
             }
 
             if (pTrait.GetType() == typeof(LanguageTrait) && DisableLanguageTraitsEnabled) {
-                if (!PlayerConfig.optionBoolEnabled($"{pTrait.id}_language_trait_toggle")) {
+                string id = $"{pTrait.id}_language_trait_toggle";
+
+                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
                     __result = false;
 
                     return false;
@@ -73,7 +79,9 @@ namespace Sandbox.Patches {
             }
 
             if (pTrait.GetType() == typeof(ReligionTrait) && DisableReligionTraitsEnabled) {
-                if (!PlayerConfig.optionBoolEnabled($"{pTrait.id}_religion_trait_toggle")) {
+                string id = $"{pTrait.id}_religion_trait_toggle";
+
+                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
                     __result = false;
 
                     return false;

@@ -3,8 +3,20 @@
 namespace Sandbox.Features {
     internal class BuildingConstructor {
         public static void Init() {
+            BuildingConstructorSelector.CreateWindow("building_constructor", "building_constructor");
+        }
+
+        public static void UpdateAssets() {
             foreach (BuildingAsset buildingAsset in AssetManager.buildings.list) {
                 string id = $"place_{buildingAsset.id}";
+
+                if (AssetManager.powers.dict.ContainsKey(id)) {
+                    continue;
+                }
+
+                if (!LocalizedTextManager.instance.contains(id)) {
+                    LocalizedTextManager.add(id, id);
+                }
 
                 GodPower power = AssetManager.powers.clone(id, "$template_drop_building$");
                 DropAsset dropAsset = AssetManager.drops.clone(id, "$spawn_building$");
@@ -16,8 +28,6 @@ namespace Sandbox.Features {
                 dropAsset.building_asset = buildingAsset.id;
                 dropAsset.action_landed = SpawnBuilding;
             }
-
-            BuildingConstructorSelector.CreateWindow("building_constructor", "building_constructor");
         }
 
         private static void SpawnBuilding(WorldTile worldTile = null, string dropId = null) {

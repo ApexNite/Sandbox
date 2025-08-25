@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 namespace Sandbox.UI {
     internal class ForcedGeneInput : MonoBehaviour {
+        private static readonly string[] _statIds = {
+            "i_offspring", "i_mutation_rate", "i_lifespan_male", "i_lifespan_female", "i_maturation", "i_mana",
+            "i_birth_rate", "i_health", "i_armor", "i_speed", "i_damage", "i_critical_chance", "i_attack_speed",
+            "i_diplomacy", "i_warfare", "i_stewardship", "i_intelligence", "i_stamina"
+        };
+
         private static readonly Dictionary<int, Dictionary<string, int>> LockedStats =
             new Dictionary<int, Dictionary<string, int>>();
 
@@ -50,6 +56,32 @@ namespace Sandbox.UI {
         private static void ClickShow_Postfix(bool pSkipAnimation, bool pJustCreated, ScrollWindow __instance) {
             if (!pJustCreated && __instance.name == "subspecies") {
                 ResetSelection();
+            }
+        }
+
+        [HarmonyPatch(typeof(MapBox), nameof(MapBox.finishMakingWorld))]
+        [HarmonyPostfix]
+        private static void FinishMakingWorld_Postfix() {
+            LockedStats.Clear();
+
+            foreach (Subspecies subspecies in World.world.subspecies) {
+                if (subspecies.data.custom_data_int == null) {
+                    continue;
+                }
+
+                foreach (string statId in _statIds) {
+                    if (subspecies.data.custom_data_int.TryGetValue(statId, out int value)) {
+                        int hashCode = subspecies.nucleus.GetHashCode();
+
+                        if (!LockedStats.ContainsKey(hashCode)) {
+                            LockedStats.Add(hashCode, new Dictionary<string, int>());
+                        }
+
+                        LockedStats[hashCode][statId] = value;
+                        subspecies.nucleus.recalculate();
+                        subspecies.recalcBaseStats();
+                    }
+                }
             }
         }
 
@@ -146,6 +178,7 @@ namespace Sandbox.UI {
             }
 
             LockedStats[hashCode][_selectedStat.name] = afterValue;
+            Config.selected_subspecies.data.set(_selectedStat.name, afterValue);
             Config.selected_subspecies.nucleus.recalculate();
             Config.selected_subspecies.recalcBaseStats();
 

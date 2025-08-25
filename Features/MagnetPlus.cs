@@ -129,6 +129,8 @@ namespace Sandbox.Features {
 
                 if (tTile != null && tTile.hasUnits()) {
                     tTile.doUnits(delegate(Actor tActor) {
+                        string id = $"{tActor.asset.id}_magnet_toggle";
+
                         if (!tActor.asset.can_be_moved_by_powers) {
                             return;
                         }
@@ -137,7 +139,8 @@ namespace Sandbox.Features {
                             return;
                         }
 
-                        if (!PlayerConfig.optionBoolEnabled(tActor.asset.id + "_magnet_toggle")
+                        if (PlayerConfig.dict.ContainsKey(id)
+                            && !PlayerConfig.optionBoolEnabled(id)
                             && !(tActor.asset.unit_zombie && PlayerConfig.optionBoolEnabled("zombie_magnet_toggle"))) {
                             return;
                         }
