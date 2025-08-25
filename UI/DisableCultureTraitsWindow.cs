@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NeoModLoader.General;
 using NeoModLoader.General.UI.Window;
 using NeoModLoader.General.UI.Window.Layout;
@@ -8,24 +9,50 @@ using UnityEngine;
 
 namespace Sandbox.UI {
     internal class DisableCultureTraitsWindow : AutoLayoutWindow<DisableCultureTraitsWindow> {
-        protected override void Init() {
-            AutoGridLayoutGroup grid = this.BeginGridGroup(6, pCellSize: new Vector2(32, 32));
+        private AutoGridLayoutGroup _grid;
+        private List<string> _loadedTraits;
 
+        public override void OnNormalEnable() {
+            UpdateButtons();
+        }
+
+        protected override void Init() {
+            _grid = this.BeginGridGroup(6, pCellSize: new Vector2(32, 32));
+            _loadedTraits = new List<string>();
+
+            UpdateButtons();
+
+            MetaObjectWithTraits_Patch.Patch();
+            MetaObjectWithTraits_Patch.DisableCultureTraitsEnabled = true;
+        }
+
+        private void UpdateButtons() {
             foreach (CultureTrait cultureTrait in AssetManager.culture_traits.list) {
                 string id = $"{cultureTrait.id}_culture_trait_toggle";
+
+                if (_loadedTraits.Contains(id)) {
+                    continue;
+                }
+
+                if (!LocalizedTextManager.instance.contains(id)) {
+                    LocalizedTextManager.add(id, id);
+                }
+
                 bool firstRun = PlayerConfig.instance.data.list.All(data => data.name != id);
                 Sprite sprite = SpriteTextureLoader.getSprite(cultureTrait.path_icon);
 
+                if (sprite == null) {
+                    sprite = SpriteTextureLoader.getSprite("ui/icons/iconQuestionMark");
+                }
+
                 AssetManager.powers.add(new GodPower { id = id, name = id, toggle_name = id });
-                grid.AddChild(PowerButtonCreator.CreateToggleButton(id, sprite).gameObject);
+                _grid.AddChild(PowerButtonCreator.CreateToggleButton(id, sprite).gameObject);
+                _loadedTraits.Add(id);
 
                 if (firstRun) {
                     PlayerConfig.setOptionBool(id, true);
                 }
             }
-
-            MetaObjectWithTraits_Patch.Patch();
-            MetaObjectWithTraits_Patch.DisableCultureTraitsEnabled = true;
         }
     }
 }
