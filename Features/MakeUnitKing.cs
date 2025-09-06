@@ -22,7 +22,7 @@
             Actor bestOption = null;
 
             foreach (Actor actor in Finder.getUnitsFromChunk(worldTile, 1, 3f)) {
-                if (!actor.hasKingdom()) {
+                if (!actor.hasKingdom() || actor.isNomad()) {
                     continue;
                 }
 
