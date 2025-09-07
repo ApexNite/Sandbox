@@ -9,8 +9,19 @@ using UnityEngine;
 
 namespace Sandbox.UI {
     internal class DisableClanTraitsWindow : AutoLayoutWindow<DisableClanTraitsWindow> {
+        private static DisableClanTraitsWindow _instance;
         private AutoGridLayoutGroup _grid;
         private List<string> _loadedTraits;
+
+        public static bool ClanTraitEnabled(string traitId) {
+            string id = $"{traitId}_clan_trait_toggle";
+
+            if (!PlayerConfig.dict.ContainsKey(id)) {
+                _instance.UpdateButtons();
+            }
+
+            return PlayerConfig.dict.ContainsKey(id) && PlayerConfig.optionBoolEnabled(id);
+        }
 
         public override void OnNormalEnable() {
             UpdateButtons();
@@ -24,6 +35,8 @@ namespace Sandbox.UI {
 
             MetaObjectWithTraits_Patch.Patch();
             MetaObjectWithTraits_Patch.DisableClanTraitsEnabled = true;
+
+            _instance = this;
         }
 
         private void UpdateButtons() {

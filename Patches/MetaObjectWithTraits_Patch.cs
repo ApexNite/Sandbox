@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using Sandbox.UI;
 
 namespace Sandbox.Patches {
     internal class MetaObjectWithTraits_Patch {
@@ -43,51 +44,43 @@ namespace Sandbox.Patches {
 
         private static bool AddTraits_Prefix(GenericBaseTrait pTrait, bool pRemoveOpposites, ref bool __result) {
             if (pTrait.GetType() == typeof(ClanTrait) && DisableClanTraitsEnabled) {
-                string id = $"{pTrait.id}_clan_trait_toggle";
-
-                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
-                    __result = false;
-
-                    return false;
+                if (DisableClanTraitsWindow.ClanTraitEnabled(pTrait.id)) {
+                    return true;
                 }
 
-                return true;
+                __result = false;
+
+                return false;
             }
 
             if (pTrait.GetType() == typeof(CultureTrait) && DisableCultureTraitsEnabled) {
-                string id = $"{pTrait.id}_culture_trait_toggle";
-
-                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
-                    __result = false;
-
-                    return false;
+                if (DisableCultureTraitsWindow.CultureTraitEnabled(pTrait.id)) {
+                    return true;
                 }
 
-                return true;
+                __result = false;
+
+                return false;
             }
 
             if (pTrait.GetType() == typeof(LanguageTrait) && DisableLanguageTraitsEnabled) {
-                string id = $"{pTrait.id}_language_trait_toggle";
-
-                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
-                    __result = false;
-
-                    return false;
+                if (DisableLanguageTraitsWindow.LanguageTraitEnabled(pTrait.id)) {
+                    return true;
                 }
 
-                return true;
+                __result = false;
+
+                return false;
             }
 
             if (pTrait.GetType() == typeof(ReligionTrait) && DisableReligionTraitsEnabled) {
-                string id = $"{pTrait.id}_religion_trait_toggle";
-
-                if (PlayerConfig.dict.ContainsKey(id) && !PlayerConfig.optionBoolEnabled(id)) {
-                    __result = false;
-
-                    return false;
+                if (DisableReligionTraitsWindow.ReligionTraitEnabled(pTrait.id)) {
+                    return true;
                 }
 
-                return true;
+                __result = false;
+
+                return false;
             }
 
             return true;
@@ -97,25 +90,25 @@ namespace Sandbox.Patches {
             MetaObjectWithTraits<MetaObjectData, GenericBaseTrait> __instance) {
             if (__instance.meta_type == MetaType.Clan && DisableClanTraitsEnabled) {
                 if (pList == __instance.default_traits) {
-                    pList = pList.Where(id => PlayerConfig.optionBoolEnabled($"{id}_clan_trait_toggle")).ToList();
+                    pList = pList.Where(DisableClanTraitsWindow.ClanTraitEnabled).ToList();
                 }
             }
 
             if (__instance.meta_type == MetaType.Culture && DisableCultureTraitsEnabled) {
                 if (pList == __instance.default_traits) {
-                    pList = pList.Where(id => PlayerConfig.optionBoolEnabled($"{id}_culture_trait_toggle")).ToList();
+                    pList = pList.Where(DisableCultureTraitsWindow.CultureTraitEnabled).ToList();
                 }
             }
 
             if (__instance.meta_type == MetaType.Language && DisableLanguageTraitsEnabled) {
                 if (pList == __instance.default_traits) {
-                    pList = pList.Where(id => PlayerConfig.optionBoolEnabled($"{id}_language_trait_toggle")).ToList();
+                    pList = pList.Where(DisableLanguageTraitsWindow.LanguageTraitEnabled).ToList();
                 }
             }
 
             if (__instance.meta_type == MetaType.Religion && DisableReligionTraitsEnabled) {
                 if (pList == __instance.default_traits) {
-                    pList = pList.Where(id => PlayerConfig.optionBoolEnabled($"{id}_religion_trait_toggle")).ToList();
+                    pList = pList.Where(DisableReligionTraitsWindow.ReligionTraitEnabled).ToList();
                 }
             }
 
