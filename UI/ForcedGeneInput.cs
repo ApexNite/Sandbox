@@ -16,6 +16,7 @@ namespace Sandbox.UI {
 
         private static int _beforeValue;
         private static Image _iconImage;
+        private static bool _initialized;
         private static InputField _inputField;
         private static StatsIcon _selectedStat;
         private static GameObject _unlockButton;
@@ -54,7 +55,7 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(ScrollWindow), nameof(ScrollWindow.clickShow))]
         [HarmonyPostfix]
         private static void ClickShow_Postfix(bool pSkipAnimation, bool pJustCreated, ScrollWindow __instance) {
-            if (!pJustCreated && __instance.name == "subspecies") {
+            if (_initialized && __instance.name == "subspecies") {
                 ResetSelection();
             }
         }
@@ -115,6 +116,13 @@ namespace Sandbox.UI {
         }
 
         private static void ResetSelection() {
+            if (_iconImage == null
+                || _inputField == null
+                || _unlockButton == null
+                || _unlockButtonPlaceholder == null) {
+                return;
+            }
+
             _beforeValue = 0;
             _selectedStat = null;
             _iconImage.sprite = Resources.Load<Sprite>("ui/icons/icon_select_finger");
@@ -273,6 +281,8 @@ namespace Sandbox.UI {
             _unlockButton.SetActive(false);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(gameObject.GetComponent<RectTransform>());
+
+            _initialized = true;
         }
     }
 }
