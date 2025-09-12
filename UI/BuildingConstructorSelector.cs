@@ -26,7 +26,7 @@ namespace Sandbox.UI {
 
         private void UpdateButtons() {
             foreach (BuildingAsset buildingAsset in AssetManager.buildings.list) {
-                string id = $"place_{buildingAsset.id}";
+                string id = $"place_{buildingAsset.id}".Underscore();
 
                 if (_loadedBuildings.Contains(id)) {
                     continue;
