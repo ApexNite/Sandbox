@@ -5,5 +5,113 @@
             "Type": "SWITCH",
             "BoolVal": false
         }
+    ],
+    "force_unit_city": [
+        {
+            "Id": "city_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "species_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "subspecies_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "neutral_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "king_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "leader_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "population_check_city",
+            "Type": "SWITCH",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_culture": [
+        {
+            "Id": "culture_check_culture",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_culture",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_memory_check_culture",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_culture",
+            "Type": "SWITCH",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_language": [
+        {
+            "Id": "language_check_language",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_language",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_communication_check_language",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_language",
+            "Type": "SWITCH",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_religion": [
+        {
+            "Id": "religion_check_religion",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_religion",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_memory_check_religion",
+            "Type": "SWITCH",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_religion",
+            "Type": "SWITCH",
+            "BoolVal": false
+        }
     ]
 }
