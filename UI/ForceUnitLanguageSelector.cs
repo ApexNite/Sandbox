@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(LanguageVisualElement));
             _languageElements = new List<GameObject>();
 
-            _languageElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _languageElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _languageElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");
@@ -59,8 +59,9 @@ namespace Sandbox.UI {
 
             GameObject bannerObject =
                 Instantiate(
-                    WindowPreloader.getWindowPrefab("city").transform.FindRecursive("PrefabBannerLanguage").gameObject,
-                    _languageElementPrefab.transform);
+                    WindowPreloader.getWindowPrefab("kingdom")
+                        .transform.FindRecursive("PrefabBannerLanguage")
+                        .gameObject, _languageElementPrefab.transform);
             bannerObject.name = "Banner";
             bannerObject.transform.localPosition = new Vector3(-85f, 0);
 

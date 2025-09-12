@@ -49,6 +49,7 @@ namespace Sandbox.UI {
 
                 if (!LocalizedTextManager.instance.contains(id)) {
                     LocalizedTextManager.add(id, id);
+                    LocalizedTextManager.add($"{id}_description", $"{id}_description");
                 }
 
                 bool firstRun = PlayerConfig.instance.data.list.All(data => data.name != id);

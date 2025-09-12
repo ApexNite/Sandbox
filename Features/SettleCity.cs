@@ -99,7 +99,7 @@ namespace Sandbox.Features {
 
             Vector3 capitalPos = _selectedKingdom.capital.getTile().posV;
             Vector2 mousePos = World.world.getMousePos();
-            Color color = _selectedKingdom.getColor().getColorMain2();
+            Color color = _selectedKingdom.getColor().getColorMainSecond();
 
             QuantumSpriteLibrary.drawArrowQuantumSprite(pAsset, capitalPos, mousePos, ref color);
         }

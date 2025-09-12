@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(CultureVisualElement));
             _cultureElements = new List<GameObject>();
 
-            _cultureElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _cultureElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _cultureElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");
@@ -59,8 +59,9 @@ namespace Sandbox.UI {
 
             GameObject bannerObject =
                 Instantiate(
-                    WindowPreloader.getWindowPrefab("city").transform.FindRecursive("PrefabBannerCulture").gameObject,
-                    _cultureElementPrefab.transform);
+                    WindowPreloader.getWindowPrefab("kingdom")
+                        .transform.FindRecursive("PrefabBannerCulture")
+                        .gameObject, _cultureElementPrefab.transform);
             bannerObject.name = "Banner";
             bannerObject.transform.localPosition = new Vector3(-85f, 0);
 

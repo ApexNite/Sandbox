@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="default_config.json" />
+    <None Include="GameResources\ui\icons\sprites.json" />
     <None Include="Locales\ch.json" />
     <None Include="Locales\cz.json" />
     <None Include="Locales\en.json" />

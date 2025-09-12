@@ -3,6 +3,129 @@
         {
             "Id": "do_building_checks",
             "Type": "SWITCH",
+            "IconPath": "ui/icons/iconBuildings",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_city": [
+        {
+            "Id": "city_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconCity",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/subspecies_traits/subspecies_trait_advanced_hippocampus",
+            "BoolVal": false
+        },
+        {
+            "Id": "species_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconGene",
+            "BoolVal": false
+        },
+        {
+            "Id": "subspecies_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconSpecies",
+            "BoolVal": false
+        },
+        {
+            "Id": "king_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconCrown",
+            "BoolVal": false
+        },
+        {
+            "Id": "leader_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconCrownSilver",
+            "BoolVal": false
+        },
+        {
+            "Id": "population_check_city",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconPopulation",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_culture": [
+        {
+            "Id": "culture_check_culture",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconCulture",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_culture",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/subspecies_traits/subspecies_trait_advanced_hippocampus",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_memory_check_culture",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconMonolith",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_culture",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/culture_traits/culture_trait_true_roots",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_language": [
+        {
+            "Id": "language_check_language",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconLanguage",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_language",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/subspecies_traits/subspecies_trait_advanced_hippocampus",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_communication_check_language",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconMonolith",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_language",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/culture_traits/culture_trait_true_roots",
+            "BoolVal": false
+        }
+    ],
+    "force_unit_religion": [
+        {
+            "Id": "religion_check_religion",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconReligion",
+            "BoolVal": false
+        },
+        {
+            "Id": "sapient_check_religion",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/subspecies_traits/subspecies_trait_advanced_hippocampus",
+            "BoolVal": false
+        },
+        {
+            "Id": "advanced_memory_check_religion",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/iconMonolith",
+            "BoolVal": false
+        },
+        {
+            "Id": "true_roots_check_religion",
+            "Type": "SWITCH",
+            "IconPath": "ui/icons/culture_traits/culture_trait_true_roots",
             "BoolVal": false
         }
     ]

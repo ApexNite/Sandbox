@@ -10,7 +10,7 @@ namespace Sandbox.Features {
 
         public static void UpdateAssets() {
             foreach (BuildingAsset buildingAsset in AssetManager.buildings.list) {
-                string id = $"place_{buildingAsset.id}";
+                string id = $"place_{buildingAsset.id}".Underscore();
 
                 if (AssetManager.powers.dict.ContainsKey(id)) {
                     continue;

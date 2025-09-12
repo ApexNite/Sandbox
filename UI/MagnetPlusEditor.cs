@@ -45,14 +45,15 @@ namespace Sandbox.UI {
                     continue;
                 }
 
-                string id = $"{actorAsset.id}_magnet_toggle";
+                string id = $"{actorAsset.id}_magnet_toggle".Underscore();
 
                 if (_loadedActors.Contains(id)) {
                     continue;
                 }
 
-                if (!LocalizedTextManager.instance.contains(id)) {
+                if (!LocalizedTextManager.instance._localized_text.ContainsKey(id)) {
                     LocalizedTextManager.add(id, id);
+                    LocalizedTextManager.add($"{id}_description", $"{id}_description");
                 }
 
                 Sprite sprite;

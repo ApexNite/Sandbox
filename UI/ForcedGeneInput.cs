@@ -37,14 +37,14 @@ namespace Sandbox.UI {
 
             _selectedStat = statsIcon;
             _beforeValue = statsButton.name.Contains("lifespan")
-                ? (int) (statsIcon._value - Config.selected_subspecies.base_stats["lifespan"])
+                ? (int) (statsIcon._value - SelectedMetas.selected_subspecies.base_stats["lifespan"])
                 : (int) statsIcon._value;
 
             SetTextWithoutEvent(_beforeValue.ToString());
             _inputField.interactable = true;
             _iconImage.sprite = statsIcon.getIcon().sprite;
 
-            int hashCode = Config.selected_subspecies.nucleus.GetHashCode();
+            int hashCode = SelectedMetas.selected_subspecies.nucleus.GetHashCode();
             bool showUnlockButton = LockedStats.ContainsKey(hashCode)
                                     && LockedStats[hashCode].ContainsKey(_selectedStat.name);
 
@@ -143,38 +143,38 @@ namespace Sandbox.UI {
         }
 
         private static void UnlockSelected() {
-            int hashCode = Config.selected_subspecies.nucleus.GetHashCode();
+            int hashCode = SelectedMetas.selected_subspecies.nucleus.GetHashCode();
 
             if (!LockedStats.TryGetValue(hashCode, out Dictionary<string, int> stat)) {
                 return;
             }
 
             stat.Remove(_selectedStat.name);
-            Config.selected_subspecies.nucleus.setDirty();
-            Config.selected_subspecies.nucleus.recalculate();
-            Config.selected_subspecies.recalcBaseStats();
+            SelectedMetas.selected_subspecies.nucleus.setDirty();
+            SelectedMetas.selected_subspecies.nucleus.recalculate();
+            SelectedMetas.selected_subspecies.recalcBaseStats();
 
             if (_selectedStat.name == "i_lifespan_male") {
-                _selectedStat.setValue(Config.selected_subspecies.base_stats_male["lifespan"]
-                                       + Config.selected_subspecies.base_stats["lifespan"]);
+                _selectedStat.setValue(SelectedMetas.selected_subspecies.base_stats_male["lifespan"]
+                                       + SelectedMetas.selected_subspecies.base_stats["lifespan"]);
             } else if (_selectedStat.name == "i_lifespan_female") {
-                _selectedStat.setValue(Config.selected_subspecies.nucleus._merged_base_stats_female["lifespan"]
-                                       + Config.selected_subspecies.base_stats["lifespan"]);
+                _selectedStat.setValue(SelectedMetas.selected_subspecies.nucleus._merged_base_stats_female["lifespan"]
+                                       + SelectedMetas.selected_subspecies.base_stats["lifespan"]);
             } else {
                 string statId = _selectedStat.name.Replace("i_", "").Replace("mutation_rate", "mutation");
 
-                _selectedStat.setValue(Config.selected_subspecies.nucleus._merged_base_stats[statId]);
+                _selectedStat.setValue(SelectedMetas.selected_subspecies.nucleus._merged_base_stats[statId]);
             }
 
             ResetSelection();
         }
 
         private static void UpdateLockedStats(string text) {
-            if (Config.selected_subspecies == null) {
+            if (SelectedMetas.selected_subspecies == null) {
                 return;
             }
 
-            int hashCode = Config.selected_subspecies.nucleus.GetHashCode();
+            int hashCode = SelectedMetas.selected_subspecies.nucleus.GetHashCode();
             bool isNumber = int.TryParse(text, out int afterValue);
 
             if (!isNumber) {
@@ -186,12 +186,12 @@ namespace Sandbox.UI {
             }
 
             LockedStats[hashCode][_selectedStat.name] = afterValue;
-            Config.selected_subspecies.data.set(_selectedStat.name, afterValue);
-            Config.selected_subspecies.nucleus.recalculate();
-            Config.selected_subspecies.recalcBaseStats();
+            SelectedMetas.selected_subspecies.data.set(_selectedStat.name, afterValue);
+            SelectedMetas.selected_subspecies.nucleus.recalculate();
+            SelectedMetas.selected_subspecies.recalcBaseStats();
 
             if (_selectedStat.name.Contains("lifespan")) {
-                afterValue += (int) Config.selected_subspecies.base_stats["lifespan"];
+                afterValue += (int) SelectedMetas.selected_subspecies.base_stats["lifespan"];
             }
 
             _selectedStat.setValue(afterValue);

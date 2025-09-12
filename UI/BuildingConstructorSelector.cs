@@ -26,10 +26,15 @@ namespace Sandbox.UI {
 
         private void UpdateButtons() {
             foreach (BuildingAsset buildingAsset in AssetManager.buildings.list) {
-                string id = $"place_{buildingAsset.id}";
+                string id = $"place_{buildingAsset.id}".Underscore();
 
                 if (_loadedBuildings.Contains(id)) {
                     continue;
+                }
+
+                if (!LocalizedTextManager.instance.contains(id)) {
+                    LocalizedTextManager.add(id, id);
+                    LocalizedTextManager.add($"{id}_description", $"{id}_description");
                 }
 
                 buildingAsset.checkSpritesAreLoaded();

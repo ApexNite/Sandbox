@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(ReligionVisualElement));
             _religionElements = new List<GameObject>();
 
-            _religionElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _religionElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _religionElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");
@@ -59,8 +59,9 @@ namespace Sandbox.UI {
 
             GameObject bannerObject =
                 Instantiate(
-                    WindowPreloader.getWindowPrefab("city").transform.FindRecursive("PrefabBannerReligion").gameObject,
-                    _religionElementPrefab.transform);
+                    WindowPreloader.getWindowPrefab("kingdom")
+                        .transform.FindRecursive("PrefabBannerReligion")
+                        .gameObject, _religionElementPrefab.transform);
             bannerObject.name = "Banner";
             bannerObject.transform.localPosition = new Vector3(-85f, 0);
 

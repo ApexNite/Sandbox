@@ -129,7 +129,7 @@ namespace Sandbox.Features {
 
                 if (tTile != null && tTile.hasUnits()) {
                     tTile.doUnits(delegate(Actor tActor) {
-                        string id = $"{tActor.asset.id}_magnet_toggle";
+                        string id = $"{tActor.asset.id}_magnet_toggle".Underscore();
 
                         if (!tActor.asset.can_be_moved_by_powers) {
                             return;
