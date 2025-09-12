@@ -37,9 +37,12 @@
                 }
             }
 
-            if (bestOption != null) {
-                bestOption.city.setLeader(bestOption, true);
+            if (bestOption == null) {
+                return;
             }
+
+            bestOption.city.removeLeader();
+            bestOption.city.setLeader(bestOption, true);
         }
     }
 }
