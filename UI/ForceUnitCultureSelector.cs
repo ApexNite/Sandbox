@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(CultureVisualElement));
             _cultureElements = new List<GameObject>();
 
-            _cultureElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _cultureElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _cultureElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");

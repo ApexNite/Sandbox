@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(CityVisualElement));
             _cityElements = new List<GameObject>();
 
-            _cityElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _cityElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _cityElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");

@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(LanguageVisualElement));
             _languageElements = new List<GameObject>();
 
-            _languageElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _languageElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _languageElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");

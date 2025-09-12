@@ -51,7 +51,7 @@ namespace Sandbox.UI {
                 typeof(ReligionVisualElement));
             _religionElements = new List<GameObject>();
 
-            _religionElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 25f);
+            _religionElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _religionElementPrefab.GetComponent<Image>();
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");
