@@ -36,7 +36,7 @@ namespace Sandbox.Features {
                     continue;
                 }
 
-                if (config["force_unit_culture"]["sapient_check_city"].BoolVal && !actor.isSapient()) {
+                if (config["force_unit_culture"]["sapient_check_culture"].BoolVal && !actor.isSapient()) {
                     continue;
                 }
 
