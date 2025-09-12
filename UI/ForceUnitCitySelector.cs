@@ -57,10 +57,12 @@ namespace Sandbox.UI {
             image.sprite = Resources.Load<Sprite>("ui/special/windowInnerSliced");
             image.type = Image.Type.Sliced;
 
-            GameObject speciesObject = new GameObject("Species", typeof(Image));
-            speciesObject.transform.SetParent(_cityElementPrefab.transform);
-            speciesObject.transform.localPosition = new Vector3(-85f, 0);
-            speciesObject.GetComponent<RectTransform>().sizeDelta = new Vector2(25f, 25f);
+            GameObject bannerObject =
+                Instantiate(
+                    WindowPreloader.getWindowPrefab("kingdom").transform.FindRecursive("PrefabBannerCity").gameObject,
+                    _cityElementPrefab.transform);
+            bannerObject.name = "Banner";
+            bannerObject.transform.localPosition = new Vector3(-85f, 0);
 
             GameObject textObject = new GameObject("Text", typeof(Text));
             textObject.transform.SetParent(_cityElementPrefab.transform);
@@ -81,10 +83,10 @@ namespace Sandbox.UI {
                 _city = city;
 
                 Text text = transform.Find("Text").GetComponent<Text>();
-                text.color = city.kingdom.kingdomColor.getColorText();
+                text.color = city.kingdom.getColor().getColorText();
                 text.text = city.name;
 
-                transform.Find("Species").GetComponent<Image>().sprite = city.kingdom.getSpeciesIcon();
+                transform.Find("Banner").GetComponent<CityBanner>().load(city);
             }
 
             private void Awake() {

@@ -59,8 +59,9 @@ namespace Sandbox.UI {
 
             GameObject bannerObject =
                 Instantiate(
-                    WindowPreloader.getWindowPrefab("city").transform.FindRecursive("PrefabBannerCulture").gameObject,
-                    _cultureElementPrefab.transform);
+                    WindowPreloader.getWindowPrefab("kingdom")
+                        .transform.FindRecursive("PrefabBannerCulture")
+                        .gameObject, _cultureElementPrefab.transform);
             bannerObject.name = "Banner";
             bannerObject.transform.localPosition = new Vector3(-85f, 0);
 
