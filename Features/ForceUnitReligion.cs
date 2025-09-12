@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using NeoModLoader.api;
+using Sandbox.UI;
 
 namespace Sandbox.Features {
     internal class ForceUnitReligion {
@@ -23,10 +24,35 @@ namespace Sandbox.Features {
         }
 
         private static void ForceReligion(WorldTile worldTile, string dropId) {
+            Religion religion = ForceUnitReligionSelector.LastSelectedReligion;
+            ModConfig config = Main.Instance.GetConfig();
+
+            if (religion == null) {
+                return;
+            }
+
             foreach (Actor actor in Finder.getUnitsFromChunk(worldTile, 1, 3f)) {
-                if (ForceUnitReligionSelector.LastSelectedReligion != null) {
-                    actor.setReligion(ForceUnitReligionSelector.LastSelectedReligion);
+                if (config["force_unit_religion"]["religion_check_religion"].BoolVal && actor.hasReligion()) {
+                    continue;
                 }
+
+                if (config["force_unit_religion"]["sapient_check_religion"].BoolVal && !actor.isSapient()) {
+                    continue;
+                }
+
+                if (config["force_unit_religion"]["advanced_memory_check_religion"].BoolVal
+                    && actor.hasSubspecies()
+                    && !actor.subspecies.has_advanced_memory) {
+                    continue;
+                }
+
+                if (config["force_unit_religion"]["true_roots_check_religion"].BoolVal
+                    && actor.hasCulture()
+                    && actor.culture.hasTrueRoots()) {
+                    continue;
+                }
+
+                actor.setReligion(ForceUnitReligionSelector.LastSelectedReligion);
             }
         }
     }

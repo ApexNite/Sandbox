@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using NeoModLoader.api;
+using Sandbox.UI;
 
 namespace Sandbox.Features {
     internal class ForceUnitLanguage {
@@ -23,10 +24,35 @@ namespace Sandbox.Features {
         }
 
         private static void ForceLanguage(WorldTile worldTile, string dropId) {
+            Language language = ForceUnitLanguageSelector.LastSelectedLanguage;
+            ModConfig config = Main.Instance.GetConfig();
+
+            if (language == null) {
+                return;
+            }
+
             foreach (Actor actor in Finder.getUnitsFromChunk(worldTile, 1, 3f)) {
-                if (ForceUnitLanguageSelector.LastSelectedLanguage != null) {
-                    actor.joinLanguage(ForceUnitLanguageSelector.LastSelectedLanguage);
+                if (config["force_unit_language"]["language_check_language"].BoolVal && actor.hasLanguage()) {
+                    continue;
                 }
+
+                if (config["force_unit_language"]["sapient_check_language"].BoolVal && !actor.isSapient()) {
+                    continue;
+                }
+
+                if (config["force_unit_language"]["advanced_communication_check_language"].BoolVal
+                    && actor.hasSubspecies()
+                    && !actor.subspecies.has_advanced_communication) {
+                    continue;
+                }
+
+                if (config["force_unit_language"]["true_roots_check_language"].BoolVal
+                    && actor.hasCulture()
+                    && actor.culture.hasTrueRoots()) {
+                    continue;
+                }
+
+                actor.joinLanguage(language);
             }
         }
     }

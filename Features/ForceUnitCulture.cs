@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using NeoModLoader.api;
+using Sandbox.UI;
 
 namespace Sandbox.Features {
     internal class ForceUnitCulture {
@@ -23,10 +24,35 @@ namespace Sandbox.Features {
         }
 
         private static void ForceCulture(WorldTile worldTile, string dropId) {
+            Culture culture = ForceUnitCultureSelector.LastSelectedCulture;
+            ModConfig config = Main.Instance.GetConfig();
+
+            if (culture == null) {
+                return;
+            }
+
             foreach (Actor actor in Finder.getUnitsFromChunk(worldTile, 1, 3f)) {
-                if (ForceUnitCultureSelector.LastSelectedCulture != null) {
-                    actor.setCulture(ForceUnitCultureSelector.LastSelectedCulture);
+                if (config["force_unit_culture"]["culture_check_culture"].BoolVal && actor.hasCulture()) {
+                    continue;
                 }
+
+                if (config["force_unit_culture"]["sapient_check_city"].BoolVal && !actor.isSapient()) {
+                    continue;
+                }
+
+                if (config["force_unit_culture"]["advanced_memory_check_culture"].BoolVal
+                    && actor.hasSubspecies()
+                    && !actor.subspecies.has_advanced_memory) {
+                    continue;
+                }
+
+                if (config["force_unit_culture"]["true_roots_check_culture"].BoolVal
+                    && actor.hasCulture()
+                    && actor.culture.hasTrueRoots()) {
+                    continue;
+                }
+
+                actor.setCulture(culture);
             }
         }
     }
