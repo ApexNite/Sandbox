@@ -28,11 +28,6 @@
             "BoolVal": false
         },
         {
-            "Id": "neutral_check_city",
-            "Type": "SWITCH",
-            "BoolVal": false
-        },
-        {
             "Id": "king_check_city",
             "Type": "SWITCH",
             "BoolVal": false

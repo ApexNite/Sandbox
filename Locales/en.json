@@ -41,8 +41,6 @@
     "species_check_city Description": "If enabled, force unit city will ignore units that are not the city's main species",
     "subspecies_check_city": "Check Subspecies",
     "subspecies_check_city Description": "If enabled, force unit city will ignore units that are not the city's main subspecies",
-    "neutral_check_city": "Neutral Check",
-    "neutral_check_city Description": "If enabled, force unit city will ignore neutral units",
     "king_check_city": "King Check",
     "king_check_city Description": "If enabled, force unit city will ignore kings",
     "leader_check_city": "Leader Check",
