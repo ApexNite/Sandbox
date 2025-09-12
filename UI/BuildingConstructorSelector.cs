@@ -32,6 +32,11 @@ namespace Sandbox.UI {
                     continue;
                 }
 
+                if (!LocalizedTextManager.instance.contains(id)) {
+                    LocalizedTextManager.add(id, id);
+                    LocalizedTextManager.add($"{id}_description", $"{id}_description");
+                }
+
                 buildingAsset.checkSpritesAreLoaded();
 
                 Sprite sprite = SpriteTextureLoader.getSprite("ui/icons/iconQuestionMark");

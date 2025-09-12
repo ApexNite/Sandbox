@@ -53,6 +53,7 @@ namespace Sandbox.UI {
 
                 if (!LocalizedTextManager.instance.contains(id)) {
                     LocalizedTextManager.add(id, id);
+                    LocalizedTextManager.add($"{id}_description", $"{id}_description");
                 }
 
                 Sprite sprite;
