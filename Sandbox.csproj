@@ -119,6 +119,7 @@
     <None Include="Locales\ch.json" />
     <None Include="Locales\cz.json" />
     <None Include="Locales\en.json" />
+    <None Include="Locales\ru.json" />
     <None Include="mod.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
