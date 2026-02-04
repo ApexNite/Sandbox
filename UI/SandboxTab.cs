@@ -25,7 +25,8 @@ namespace Sandbox.UI {
         private static PowerButton _magnetPlusEditorButton;
         private static PowerButton _makeUnitKingButton;
         private static PowerButton _makeUnitLeaderButton;
-        private static PowerButton _settleCityButton;
+        private static PowerButton _pToPSettleCityButton;
+        private static PowerButton _directSettleCityButton;
         private static PowersTab _tab;
 
         public static void Init() {
@@ -33,7 +34,7 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 26;
+            _tab._children = 27;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 TraitDisablers,
@@ -56,7 +57,8 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(MagnetPlus, _magnetPlusButton);
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
             _tab.AddPowerButton(Plots, _forcePlotButton);
-            _tab.AddPowerButton(KingdomManipulation, _settleCityButton);
+            _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
+            _tab.AddPowerButton(KingdomManipulation, _directSettleCityButton);
             _tab.UpdateLayout();
 
             for (int i = 0; i < _tab.gameObject.transform.childCount; i++) {
@@ -108,10 +110,14 @@ namespace Sandbox.UI {
                 .SetIcon("ui/icons/force_plot_icon")
                 .SetGodPower("force_plot")
                 .Build(out _forcePlotButton)
-                .Next("settle_city", ButtonStyle.Small)
-                .SetIcon("ui/icons/settle_city_icon")
-                .SetGodPower("settle_city")
-                .Build(out _settleCityButton)
+                .Next("ptop_settle_city", ButtonStyle.Small)
+                .SetIcon("ui/icons/ptop_settle_city_icon")
+                .SetGodPower("ptop_settle_city")
+                .Build(out _pToPSettleCityButton)
+                .Next("direct_settle_city", ButtonStyle.Small)
+                .SetIcon("ui/icons/direct_settle_city_icon")
+                .SetGodPower("direct_settle_city")
+                .Build(out _directSettleCityButton)
                 .Next("disable_clan_traits", ButtonStyle.Small)
                 .SetIcon("ui/icons/no_clan_traits_icon")
                 .SetWindowId("disable_clan_traits")

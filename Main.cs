@@ -14,7 +14,8 @@ namespace Sandbox {
             ForceUnitLanguage.Init();
             ForceUnitReligion.Init();
             ForceUnitPlot.Init();
-            SettleCity.Init();
+            PToPSettleCity.Init();
+            DirectSettleCity.Init();
             MakeUnitKing.Init();
             MakeUnitLeader.Init();
             DisableClanTraitsWindow.CreateWindow("disable_clan_traits", "disable_clan_traits");

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 namespace Sandbox.Features {
-    internal class SettleCity {
+    internal class PToPSettleCity {
         private static City _lastCityFounded;
         private static Kingdom _selectedKingdom;
 
         public static void Init() {
             GodPower power = new GodPower {
-                id = "settle_city",
-                name = "settle_city",
+                id = "ptop_settle_city",
+                name = "ptop_settle_city",
                 force_map_mode = MetaType.Kingdom,
                 can_drag_map = true,
                 select_button_action = SelectSettleCity,
@@ -89,7 +89,7 @@ namespace Sandbox.Features {
                 return;
             }
 
-            if (!World.world.isSelectedPower("settle_city")) {
+            if (!World.world.isSelectedPower("ptop_settle_city")) {
                 return;
             }
 

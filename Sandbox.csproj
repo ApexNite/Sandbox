@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\BuildingConstructor.cs" />
+    <Compile Include="Features\DirectSettleCity.cs" />
     <Compile Include="Features\ForcedGeneEdit.cs" />
     <Compile Include="Features\ForceUnitCity.cs" />
     <Compile Include="Features\ForceUnitCulture.cs" />
@@ -75,7 +76,7 @@
     <Compile Include="Features\MagnetPlus.cs" />
     <Compile Include="Features\MakeUnitKing.cs" />
     <Compile Include="Features\MakeUnitLeader.cs" />
-    <Compile Include="Features\SettleCity.cs" />
+    <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\MetaObjectWithTraits_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameResources\ui\icons\building_constructor_icon.png" />
+    <Content Include="GameResources\ui\icons\direct_settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\force_culture_icon.png" />
     <Content Include="GameResources\ui\icons\force_language_icon.png" />
     <Content Include="GameResources\ui\icons\force_plot_icon.png" />
@@ -109,6 +111,7 @@
     <Content Include="GameResources\ui\icons\no_culture_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_language_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_religion_traits_icon.png" />
+    <Content Include="GameResources\ui\icons\ptop_settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\tab_icon.png" />
     <Content Include="icon.png" />
