@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Features\BuildingConstructor.cs" />
     <Compile Include="Features\DirectSettleCity.cs" />
+    <Compile Include="Features\ForceCityKingdom.cs" />
     <Compile Include="Features\ForcedGeneEdit.cs" />
     <Compile Include="Features\ForceUnitCity.cs" />
     <Compile Include="Features\ForceUnitCulture.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="UI\DisableCultureTraitsWindow.cs" />
     <Compile Include="UI\DisableLanguageTraitsWindow.cs" />
     <Compile Include="UI\DisableReligionTraitsWindow.cs" />
+    <Compile Include="UI\ForceCityKingdomSelector.cs" />
     <Compile Include="UI\ForcedGeneInput.cs" />
     <Compile Include="UI\ForceUnitCitySelector.cs" />
     <Compile Include="UI\ForceUnitCultureSelector.cs" />

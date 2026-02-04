@@ -8,14 +8,15 @@ namespace Sandbox.UI {
         private const string BuildingConstructor = "building_constructor";
         private const string KingdomManipulation = "kingdom_manipulation";
         private const string MagnetPlus = "magnet_plus";
-        private const string Plots = "plots";
         private const string TraitDisablers = "trait_disablers";
         private const string UnitManipulation = "unit_manipulation";
         private static PowerButton _buildingConstructorButton;
+        private static PowerButton _directSettleCityButton;
         private static PowerButton _disableClanTraitsButton;
         private static PowerButton _disableCultureTraitsButton;
         private static PowerButton _disableLanguageTraitsButton;
         private static PowerButton _disableReligionTraitsButton;
+        private static PowerButton _forceCityKingdomButton;
         private static PowerButton _forcePlotButton;
         private static PowerButton _forceUnitCity;
         private static PowerButton _forceUnitCulture;
@@ -26,7 +27,6 @@ namespace Sandbox.UI {
         private static PowerButton _makeUnitKingButton;
         private static PowerButton _makeUnitLeaderButton;
         private static PowerButton _pToPSettleCityButton;
-        private static PowerButton _directSettleCityButton;
         private static PowersTab _tab;
 
         public static void Init() {
@@ -37,11 +37,10 @@ namespace Sandbox.UI {
             _tab._children = 27;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
+                KingdomManipulation,
                 TraitDisablers,
                 MagnetPlus,
-                BuildingConstructor,
-                Plots,
-                KingdomManipulation
+                BuildingConstructor
             });
             _tab.AddPowerButton(UnitManipulation, _forceUnitCity);
             _tab.AddPowerButton(UnitManipulation, _forceUnitCulture);
@@ -49,6 +48,10 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitReligion);
             _tab.AddPowerButton(UnitManipulation, _makeUnitKingButton);
             _tab.AddPowerButton(UnitManipulation, _makeUnitLeaderButton);
+            _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
+            _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
+            _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
+            _tab.AddPowerButton(KingdomManipulation, _directSettleCityButton);
             _tab.AddPowerButton(TraitDisablers, _disableClanTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableCultureTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableLanguageTraitsButton);
@@ -56,9 +59,6 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(MagnetPlus, _magnetPlusEditorButton);
             _tab.AddPowerButton(MagnetPlus, _magnetPlusButton);
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
-            _tab.AddPowerButton(Plots, _forcePlotButton);
-            _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
-            _tab.AddPowerButton(KingdomManipulation, _directSettleCityButton);
             _tab.UpdateLayout();
 
             for (int i = 0; i < _tab.gameObject.transform.childCount; i++) {
@@ -133,7 +133,11 @@ namespace Sandbox.UI {
                 .Next("disable_religion_traits", ButtonStyle.Small)
                 .SetIcon("ui/icons/no_religion_traits_icon")
                 .SetWindowId("disable_religion_traits")
-                .Build(out _disableReligionTraitsButton);
+                .Build(out _disableReligionTraitsButton)
+                .Next("force_city_kingdom", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/force_unit_city_icon")
+                .SetWindowId("force_city_kingdom")
+                .Build(out _forceCityKingdomButton);
         }
     }
 }
