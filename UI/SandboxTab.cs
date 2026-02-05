@@ -21,11 +21,10 @@ namespace Sandbox.UI {
         private static PowerButton _forceUnitCity;
         private static PowerButton _forceUnitCulture;
         private static PowerButton _forceUnitLanguage;
+        private static PowerButton _forceUnitProfessionButton;
         private static PowerButton _forceUnitReligion;
         private static PowerButton _magnetPlusButton;
         private static PowerButton _magnetPlusEditorButton;
-        private static PowerButton _makeUnitKingButton;
-        private static PowerButton _makeUnitLeaderButton;
         private static PowerButton _pToPSettleCityButton;
         private static PowersTab _tab;
 
@@ -34,7 +33,7 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 27;
+            _tab._children = 26;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 KingdomManipulation,
@@ -46,8 +45,7 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitCulture);
             _tab.AddPowerButton(UnitManipulation, _forceUnitLanguage);
             _tab.AddPowerButton(UnitManipulation, _forceUnitReligion);
-            _tab.AddPowerButton(UnitManipulation, _makeUnitKingButton);
-            _tab.AddPowerButton(UnitManipulation, _makeUnitLeaderButton);
+            _tab.AddPowerButton(UnitManipulation, _forceUnitProfessionButton);
             _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
             _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
             _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
@@ -98,14 +96,6 @@ namespace Sandbox.UI {
                 .SetIcon("ui/icons/force_religion_icon")
                 .SetWindowId("force_unit_religion")
                 .Build(out _forceUnitReligion)
-                .Next("make_unit_king", ButtonStyle.Small)
-                .SetIcon("ui/icons/force_unit_king_icon")
-                .SetGodPower("make_unit_king")
-                .Build(out _makeUnitKingButton)
-                .Next("make_unit_leader", ButtonStyle.Small)
-                .SetIcon("ui/icons/force_unit_leader_icon")
-                .SetGodPower("make_unit_leader")
-                .Build(out _makeUnitLeaderButton)
                 .Next("force_plot", ButtonStyle.Small)
                 .SetIcon("ui/icons/force_plot_icon")
                 .SetGodPower("force_plot")
@@ -135,9 +125,13 @@ namespace Sandbox.UI {
                 .SetWindowId("disable_religion_traits")
                 .Build(out _disableReligionTraitsButton)
                 .Next("force_city_kingdom", ButtonStyle.SpecialRedBorder)
-                .SetIcon("ui/icons/force_unit_city_icon")
+                .SetIcon("ui/icons/iconQuestionMark")
                 .SetWindowId("force_city_kingdom")
-                .Build(out _forceCityKingdomButton);
+                .Build(out _forceCityKingdomButton)
+                .Next("force_unit_profession", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/iconQuestionMark")
+                .SetWindowId("force_unit_profession")
+                .Build(out _forceUnitProfessionButton);
         }
     }
 }

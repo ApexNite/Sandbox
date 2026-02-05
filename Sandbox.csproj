@@ -73,10 +73,9 @@
     <Compile Include="Features\ForceUnitCulture.cs" />
     <Compile Include="Features\ForceUnitLanguage.cs" />
     <Compile Include="Features\ForceUnitPlot.cs" />
+    <Compile Include="Features\ForceUnitProfession.cs" />
     <Compile Include="Features\ForceUnitReligion.cs" />
     <Compile Include="Features\MagnetPlus.cs" />
-    <Compile Include="Features\MakeUnitKing.cs" />
-    <Compile Include="Features\MakeUnitLeader.cs" />
     <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\MetaObjectWithTraits_Patch.cs" />
@@ -93,6 +92,7 @@
     <Compile Include="UI\ForceUnitCitySelector.cs" />
     <Compile Include="UI\ForceUnitCultureSelector.cs" />
     <Compile Include="UI\ForceUnitLanguageSelector.cs" />
+    <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />
     <Compile Include="UI\MagnetPlusEditor.cs" />
     <Compile Include="UI\SandboxTab.cs" />

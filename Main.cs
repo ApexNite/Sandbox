@@ -16,9 +16,8 @@ namespace Sandbox {
             ForceUnitPlot.Init();
             PToPSettleCity.Init();
             DirectSettleCity.Init();
-            MakeUnitKing.Init();
-            MakeUnitLeader.Init();
             ForceCityKingdom.Init();
+            ForceUnitProfession.Init();
             DisableClanTraitsWindow.CreateWindow("disable_clan_traits", "disable_clan_traits");
             DisableCultureTraitsWindow.CreateWindow("disable_culture_traits", "disable_culture_traits");
             DisableLanguageTraitsWindow.CreateWindow("disable_language_traits", "disable_language_traits");
