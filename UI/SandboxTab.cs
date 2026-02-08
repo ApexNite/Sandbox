@@ -20,6 +20,7 @@ namespace Sandbox.UI {
         private static PowerButton _forcePlotButton;
         private static PowerButton _forceUnitCity;
         private static PowerButton _forceUnitCulture;
+        private static PowerButton _forceUnitJobButton;
         private static PowerButton _forceUnitLanguage;
         private static PowerButton _forceUnitProfessionButton;
         private static PowerButton _forceUnitReligion;
@@ -33,7 +34,7 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 26;
+            _tab._children = 27;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 KingdomManipulation,
@@ -46,6 +47,7 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitLanguage);
             _tab.AddPowerButton(UnitManipulation, _forceUnitReligion);
             _tab.AddPowerButton(UnitManipulation, _forceUnitProfessionButton);
+            _tab.AddPowerButton(UnitManipulation, _forceUnitJobButton);
             _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
             _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
             _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
@@ -131,7 +133,11 @@ namespace Sandbox.UI {
                 .Next("force_unit_profession", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/iconQuestionMark")
                 .SetWindowId("force_unit_profession")
-                .Build(out _forceUnitProfessionButton);
+                .Build(out _forceUnitProfessionButton)
+                .Next("force_unit_job", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/iconQuestionMark")
+                .SetWindowId("force_unit_job")
+                .Build(out _forceUnitJobButton);
         }
     }
 }

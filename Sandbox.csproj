@@ -71,6 +71,7 @@
     <Compile Include="Features\ForcedGeneEdit.cs" />
     <Compile Include="Features\ForceUnitCity.cs" />
     <Compile Include="Features\ForceUnitCulture.cs" />
+    <Compile Include="Features\ForceUnitJob.cs" />
     <Compile Include="Features\ForceUnitLanguage.cs" />
     <Compile Include="Features\ForceUnitPlot.cs" />
     <Compile Include="Features\ForceUnitProfession.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="UI\ForcedGeneInput.cs" />
     <Compile Include="UI\ForceUnitCitySelector.cs" />
     <Compile Include="UI\ForceUnitCultureSelector.cs" />
+    <Compile Include="UI\ForceUnitJobSelector.cs" />
     <Compile Include="UI\ForceUnitLanguageSelector.cs" />
     <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />

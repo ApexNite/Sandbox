@@ -8,16 +8,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Sandbox.UI {
-    internal class ForceUnitProfessionSelector : AutoLayoutWindow<ForceUnitProfessionSelector> {
-        private readonly Dictionary<string, string> _sprites = new Dictionary<string, string> {
-            { "make_unit_king", "ui/icons/iconCrown" },
-            { "make_unit_leader", "ui/icons/iconCrownSilver" },
-            { "make_unit_warrior", "ui/icons/items/icon_sword_adamantine" },
-            { "make_unit_unit", "ui/icons/iconPopulation" }
-        };
-
+    internal class ForceUnitJobSelector : AutoLayoutWindow<ForceUnitJobSelector> {
         private AutoGridLayoutGroup _grid;
-        private List<string> _loadedProfessions;
+        private List<string> _loadedJobs;
 
         public override void OnNormalEnable() {
             ForceUnitProfession.UpdateAssets();
@@ -26,16 +19,16 @@ namespace Sandbox.UI {
 
         protected override void Init() {
             _grid = this.BeginGridGroup(6, pCellSize: new Vector2(32, 32));
-            _loadedProfessions = new List<string>();
+            _loadedJobs = new List<string>();
 
             UpdateButtons();
         }
 
         private void UpdateButtons() {
-            foreach (ProfessionAsset professionAsset in AssetManager.professions.list) {
-                string id = $"make_unit_{professionAsset.id}".Underscore();
+            foreach (CitizenJobAsset jobAsset in AssetManager.citizen_job_library.list) {
+                string id = $"j_make_unit_{jobAsset.id}".Underscore();
 
-                if (_loadedProfessions.Contains(id)) {
+                if (_loadedJobs.Contains(id)) {
                     continue;
                 }
 
@@ -44,10 +37,14 @@ namespace Sandbox.UI {
                     LocalizedTextManager.add($"{id}_description", $"{id}_description");
                 }
 
-                Sprite sprite = SpriteTextureLoader.getSprite("ui/icons/iconQuestionMark");
+                Sprite sprite = SpriteTextureLoader.getSprite(jobAsset.path_icon);
 
-                if (_sprites.TryGetValue(id, out string spriteId)) {
-                    sprite = SpriteTextureLoader.getSprite(spriteId);
+                if (id == "j_make_unit_manure_cleaner") {
+                    sprite = SpriteTextureLoader.getSprite("ui/Icons/citizen_jobs/iconCitizenJobCleaner");
+                }
+
+                if (sprite == null) {
+                    sprite = SpriteTextureLoader.getSprite("ui/icons/iconQuestionMark");
                 }
 
                 PowerButton powerButton = PowerButtonCreator.CreateGodPowerButton(id, sprite);
@@ -55,7 +52,7 @@ namespace Sandbox.UI {
                     .onClick.AddListener(() => ScrollWindow.getCurrentWindow().clickHide());
 
                 _grid.AddChild(powerButton.gameObject);
-                _loadedProfessions.Add(id);
+                _loadedJobs.Add(id);
             }
         }
     }
