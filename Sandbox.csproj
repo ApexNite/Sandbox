@@ -76,6 +76,7 @@
     <Compile Include="Features\ForceUnitPlot.cs" />
     <Compile Include="Features\ForceUnitProfession.cs" />
     <Compile Include="Features\ForceUnitReligion.cs" />
+    <Compile Include="Features\InventoryEdit.cs" />
     <Compile Include="Features\MagnetPlus.cs" />
     <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />
     <Compile Include="UI\MagnetPlusEditor.cs" />
+    <Compile Include="UI\FoodEditor.cs" />
+    <Compile Include="UI\ResourceEditor.cs" />
     <Compile Include="UI\SandboxTab.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +114,7 @@
     <Content Include="GameResources\ui\icons\force_unit_leader_icon.png" />
     <Content Include="GameResources\ui\icons\icon_select_finger.png" />
     <Content Include="GameResources\ui\icons\magnet_plus_icon.png" />
+    <Content Include="GameResources\ui\icons\green_plus.png" />
     <Content Include="GameResources\ui\icons\no_clan_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_culture_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_language_traits_icon.png" />

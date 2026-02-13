@@ -24,6 +24,7 @@ namespace Sandbox {
             DisableLanguageTraitsWindow.CreateWindow("disable_language_traits", "disable_language_traits");
             DisableReligionTraitsWindow.CreateWindow("disable_religion_traits", "disable_religion_traits");
             ForcedGeneEdit.Init();
+            InventoryEdit.Init();
             SandboxTab.Init();
         }
     }
