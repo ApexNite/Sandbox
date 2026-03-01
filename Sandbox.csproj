@@ -85,6 +85,7 @@
     <Compile Include="Toolkit\Graphics\ButtonBuilder.cs" />
     <Compile Include="Toolkit\Graphics\ButtonStyle.cs" />
     <Compile Include="UI\BuildingConstructorSelector.cs" />
+    <Compile Include="UI\CultureMagnetSelector.cs" />
     <Compile Include="UI\DisableClanTraitsWindow.cs" />
     <Compile Include="UI\DisableCultureTraitsWindow.cs" />
     <Compile Include="UI\DisableLanguageTraitsWindow.cs" />
@@ -97,10 +98,13 @@
     <Compile Include="UI\ForceUnitLanguageSelector.cs" />
     <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />
+    <Compile Include="UI\LanguageMagnetSelector.cs" />
     <Compile Include="UI\MagnetPlusEditor.cs" />
     <Compile Include="UI\FoodEditor.cs" />
+    <Compile Include="UI\ReligionMagnetSelector.cs" />
     <Compile Include="UI\ResourceEditor.cs" />
     <Compile Include="UI\SandboxTab.cs" />
+    <Compile Include="UI\SubspeciesMagnetSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameResources\ui\icons\building_constructor_icon.png" />

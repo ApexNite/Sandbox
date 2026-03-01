@@ -11,6 +11,7 @@ namespace Sandbox.UI {
         private const string TraitDisablers = "trait_disablers";
         private const string UnitManipulation = "unit_manipulation";
         private static PowerButton _buildingConstructorButton;
+        private static PowerButton _cultureMagnetButton;
         private static PowerButton _directSettleCityButton;
         private static PowerButton _disableClanTraitsButton;
         private static PowerButton _disableCultureTraitsButton;
@@ -24,10 +25,13 @@ namespace Sandbox.UI {
         private static PowerButton _forceUnitLanguage;
         private static PowerButton _forceUnitProfessionButton;
         private static PowerButton _forceUnitReligion;
+        private static PowerButton _languageMagnetButton;
         private static PowerButton _magnetPlusButton;
         private static PowerButton _magnetPlusEditorButton;
         private static PowerButton _mergeCitiesButton;
         private static PowerButton _pToPSettleCityButton;
+        private static PowerButton _religionMagnetButton;
+        private static PowerButton _subspeciesMagnetButton;
         private static PowersTab _tab;
 
         public static void Init() {
@@ -35,7 +39,7 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 27;
+            _tab._children = 31;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 KingdomManipulation,
@@ -60,6 +64,10 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(TraitDisablers, _disableReligionTraitsButton);
             _tab.AddPowerButton(MagnetPlus, _magnetPlusEditorButton);
             _tab.AddPowerButton(MagnetPlus, _magnetPlusButton);
+            _tab.AddPowerButton(MagnetPlus, _cultureMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _languageMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _religionMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _subspeciesMagnetButton);
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
             _tab.UpdateLayout();
 
@@ -80,6 +88,22 @@ namespace Sandbox.UI {
                 .SetIcon("ui/icons/magnet_plus_icon")
                 .SetGodPower("magnet_plus")
                 .Build(out _magnetPlusButton)
+                .Next("culture_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/culture_magnet_icon")
+                .SetWindowId("culture_magnet")
+                .Build(out _cultureMagnetButton)
+                .Next("language_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/language_magnet_icon")
+                .SetWindowId("language_magnet")
+                .Build(out _languageMagnetButton)
+                .Next("religion_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/religion_magnet_icon")
+                .SetWindowId("religion_magnet")
+                .Build(out _religionMagnetButton)
+                .Next("subspecies_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/subspecies_magnet_icon")
+                .SetWindowId("subspecies_magnet")
+                .Build(out _subspeciesMagnetButton)
                 .Next("building_constructor", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/building_constructor_icon")
                 .SetWindowId("building_constructor")
