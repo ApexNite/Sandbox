@@ -26,6 +26,7 @@ namespace Sandbox.UI {
         private static PowerButton _forceUnitReligion;
         private static PowerButton _magnetPlusButton;
         private static PowerButton _magnetPlusEditorButton;
+        private static PowerButton _mergeCitiesButton;
         private static PowerButton _pToPSettleCityButton;
         private static PowersTab _tab;
 
@@ -49,6 +50,7 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitProfessionButton);
             _tab.AddPowerButton(UnitManipulation, _forceUnitJobButton);
             _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
+            //_tab.AddPowerButton(KingdomManipulation, _mergeCitiesButton);
             _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
             _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
             _tab.AddPowerButton(KingdomManipulation, _directSettleCityButton);
@@ -127,17 +129,21 @@ namespace Sandbox.UI {
                 .SetWindowId("disable_religion_traits")
                 .Build(out _disableReligionTraitsButton)
                 .Next("force_city_kingdom", ButtonStyle.SpecialRedBorder)
-                .SetIcon("ui/icons/iconQuestionMark")
+                .SetIcon("ui/icons/force_city_kingdom_icon")
                 .SetWindowId("force_city_kingdom")
                 .Build(out _forceCityKingdomButton)
                 .Next("force_unit_profession", ButtonStyle.SpecialRedBorder)
-                .SetIcon("ui/icons/iconQuestionMark")
+                .SetIcon("ui/icons/force_unit_profession_icon")
                 .SetWindowId("force_unit_profession")
                 .Build(out _forceUnitProfessionButton)
                 .Next("force_unit_job", ButtonStyle.SpecialRedBorder)
-                .SetIcon("ui/icons/iconQuestionMark")
+                .SetIcon("ui/icons/force_unit_job_icon")
                 .SetWindowId("force_unit_job")
-                .Build(out _forceUnitJobButton);
+                .Build(out _forceUnitJobButton)
+                .Next("merge_cities", ButtonStyle.Small)
+                .SetIcon("ui/icons/iconQuestionMark")
+                .SetGodPower("merge_cities")
+                .Build(out _mergeCitiesButton);
         }
     }
 }
