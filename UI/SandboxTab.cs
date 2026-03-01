@@ -39,7 +39,6 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 31;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 KingdomManipulation,
@@ -71,13 +70,27 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
             _tab.UpdateLayout();
 
+            Queue<int> indexes = new Queue<int>();
+            int offset = 0;
+
             for (int i = 0; i < _tab.gameObject.transform.childCount; i++) {
                 GameObject child = _tab.gameObject.transform.GetChild(i).gameObject;
 
-                if (child.name == "_line(Clone)") {
-                    child.transform.localPosition -= new Vector3(0, 72f);
+                if (child == _forceCityKingdomButton.gameObject
+                    || child == _disableClanTraitsButton.gameObject
+                    || child == _magnetPlusEditorButton.gameObject
+                    || child == _buildingConstructorButton.gameObject) {
+                    indexes.Enqueue(child.transform.GetSiblingIndex());
+                }
+
+                if (child.name == "_line(Clone)" && indexes.Count > 0) {
+                    child.transform.SetSiblingIndex(indexes.Dequeue() + offset);
+                    offset++;
                 }
             }
+
+            _forceUnitCity.gameObject.SetActive(false);
+            _forceUnitCity.gameObject.SetActive(true);
         }
 
         private static void CreateButtons() {
