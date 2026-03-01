@@ -6,8 +6,21 @@ using UnityEngine;
 namespace Sandbox.Features {
     [HarmonyPatch]
     internal class MagnetPlus : Magnet {
+        private static GodPower _cultureMagnetPower;
+        private static MagnetFilterMode _filterMode = MagnetFilterMode.None;
         private static GodPower _godPower;
         private static MagnetPlus _instance;
+        private static GodPower _languageMagnetPower;
+        private static GodPower _religionMagnetPower;
+        private static GodPower _subspeciesMagnetPower;
+
+        private enum MagnetFilterMode {
+            None,
+            Culture,
+            Language,
+            Religion,
+            Subspecies
+        }
 
         [HarmonyPatch(typeof(QuantumSpriteLibrary), nameof(QuantumSpriteLibrary.drawMagnetUnits))]
         [HarmonyPostfix]
@@ -48,6 +61,69 @@ namespace Sandbox.Features {
             _godPower.click_brush_action += AssetManager.powers.fmodDrawingSound;
 
             AssetManager.powers.add(_godPower);
+
+            // Filtered magnets (Culture / Language / Religion)
+            _cultureMagnetPower = new GodPower {
+                id = "culture_magnet",
+                name = "culture_magnet",
+                show_tool_sizes = true,
+                hold_action = true,
+                highlight = true,
+                sound_drawing = "event:/SFX/POWERS/DivineMagnet",
+                unselect_when_window = true
+            };
+            _cultureMagnetPower.click_brush_action += UseMagnetPlus;
+            _cultureMagnetPower.click_brush_action += AssetManager.powers.flashBrushPixelsDuringClick;
+            _cultureMagnetPower.click_brush_action += AssetManager.powers.fmodDrawingSound;
+            AssetManager.powers.add(_cultureMagnetPower);
+
+            _languageMagnetPower = new GodPower {
+                id = "language_magnet",
+                name = "language_magnet",
+                show_tool_sizes = true,
+                hold_action = true,
+                highlight = true,
+                sound_drawing = "event:/SFX/POWERS/DivineMagnet",
+                unselect_when_window = true
+            };
+            _languageMagnetPower.click_brush_action += UseMagnetPlus;
+            _languageMagnetPower.click_brush_action += AssetManager.powers.flashBrushPixelsDuringClick;
+            _languageMagnetPower.click_brush_action += AssetManager.powers.fmodDrawingSound;
+            AssetManager.powers.add(_languageMagnetPower);
+
+            _religionMagnetPower = new GodPower {
+                id = "religion_magnet",
+                name = "religion_magnet",
+                show_tool_sizes = true,
+                hold_action = true,
+                highlight = true,
+                sound_drawing = "event:/SFX/POWERS/DivineMagnet",
+                unselect_when_window = true
+            };
+            _religionMagnetPower.click_brush_action += UseMagnetPlus;
+            _religionMagnetPower.click_brush_action += AssetManager.powers.flashBrushPixelsDuringClick;
+            _religionMagnetPower.click_brush_action += AssetManager.powers.fmodDrawingSound;
+            AssetManager.powers.add(_religionMagnetPower);
+
+            _subspeciesMagnetPower = new GodPower {
+                id = "subspecies_magnet",
+                name = "subspecies_magnet",
+                show_tool_sizes = true,
+                hold_action = true,
+                highlight = true,
+                sound_drawing = "event:/SFX/POWERS/DivineMagnet",
+                unselect_when_window = true
+            };
+            _subspeciesMagnetPower.click_brush_action += UseMagnetPlus;
+            _subspeciesMagnetPower.click_brush_action += AssetManager.powers.flashBrushPixelsDuringClick;
+            _subspeciesMagnetPower.click_brush_action += AssetManager.powers.fmodDrawingSound;
+            AssetManager.powers.add(_subspeciesMagnetPower);
+
+            CultureMagnetSelector.CreateWindow("culture_magnet", "culture_magnet");
+            LanguageMagnetSelector.CreateWindow("language_magnet", "language_magnet");
+            ReligionMagnetSelector.CreateWindow("religion_magnet", "religion_magnet");
+            SubspeciesMagnetSelector.CreateWindow("subspecies_magnet", "subspecies_magnet");
+
             MagnetPlusEditor.CreateWindow("magnet_plus_editor", "magnet_plus_editor");
             Harmony.CreateAndPatchAll(typeof(MagnetPlus));
         }
@@ -63,6 +139,29 @@ namespace Sandbox.Features {
         }
 
         private static bool UseMagnetPlus(WorldTile worldTile, string powerId) {
+            switch (powerId) {
+                case "culture_magnet":
+                    _filterMode = MagnetFilterMode.Culture;
+
+                    break;
+                case "language_magnet":
+                    _filterMode = MagnetFilterMode.Language;
+
+                    break;
+                case "religion_magnet":
+                    _filterMode = MagnetFilterMode.Religion;
+
+                    break;
+                case "subspecies_magnet":
+                    _filterMode = MagnetFilterMode.Subspecies;
+
+                    break;
+                default:
+                    _filterMode = MagnetFilterMode.None;
+
+                    break;
+            }
+
             _instance.MagnetAction(false, worldTile);
 
             return true;
@@ -121,6 +220,77 @@ namespace Sandbox.Features {
             }
         }
 
+        private bool PassesFilter(Actor actor) {
+            if (_filterMode == MagnetFilterMode.None) {
+                return true;
+            }
+
+            switch (_filterMode) {
+                case MagnetFilterMode.Culture: {
+                    Culture target = CultureMagnetSelector.LastSelectedCulture;
+
+                    if (target == null) {
+                        return false;
+                    }
+
+                    return actor.hasCulture() && actor.culture == target;
+                }
+                case MagnetFilterMode.Religion: {
+                    Religion target = ReligionMagnetSelector.LastSelectedReligion;
+
+                    if (target == null) {
+                        return false;
+                    }
+
+                    Religion current = Traverse.Create(actor).Field("religion").GetValue<Religion>();
+
+                    return current != null && current == target;
+                }
+                case MagnetFilterMode.Language: {
+                    Language target = LanguageMagnetSelector.LastSelectedLanguage;
+
+                    if (target == null) {
+                        return false;
+                    }
+
+                    // WorldBox language can be stored in different ways across versions/mods,
+                    // so we try a couple common fields safely.
+                    Language current = Traverse.Create(actor).Field("language").GetValue<Language>();
+
+                    if (current != null && current == target) {
+                        return true;
+                    }
+
+                    List<Language> langs = Traverse.Create(actor).Field("languages").GetValue<List<Language>>();
+
+                    return langs != null && langs.Contains(target);
+                }
+
+                case MagnetFilterMode.Subspecies: {
+                    Subspecies target = SubspeciesMagnetSelector.LastSelectedSubspecies;
+
+                    if (target == null) {
+                        return false;
+                    }
+
+                    // Some versions can return different Subspecies instances for the same id,
+                    // so compare by id for stability.
+                    if (actor.subspecies == null) {
+                        return false;
+                    }
+
+                    try {
+                        return actor.subspecies == target || actor.subspecies.id == target.id;
+                    } catch {
+                        return actor.subspecies == target;
+                    }
+                }
+
+                default:
+                    return true;
+            }
+        }
+
         private void PickupUnits(WorldTile worldTile) {
             BrushPixelData[] tBrushPixels = Config.current_brush_data.pos;
 
@@ -136,6 +306,10 @@ namespace Sandbox.Features {
                         }
 
                         if (tActor.isInsideSomething()) {
+                            return;
+                        }
+
+                        if (!PassesFilter(tActor)) {
                             return;
                         }
 

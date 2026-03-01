@@ -6,26 +6,33 @@ using UnityEngine;
 namespace Sandbox.UI {
     internal static class SandboxTab {
         private const string BuildingConstructor = "building_constructor";
+        private const string CityManipulation = "city_manipulation";
         private const string KingdomManipulation = "kingdom_manipulation";
         private const string MagnetPlus = "magnet_plus";
-        private const string Plots = "plots";
         private const string TraitDisablers = "trait_disablers";
         private const string UnitManipulation = "unit_manipulation";
         private static PowerButton _buildingConstructorButton;
+        private static PowerButton _cultureMagnetButton;
+        private static PowerButton _directSettleCityButton;
         private static PowerButton _disableClanTraitsButton;
         private static PowerButton _disableCultureTraitsButton;
         private static PowerButton _disableLanguageTraitsButton;
         private static PowerButton _disableReligionTraitsButton;
+        private static PowerButton _forceCityKingdomButton;
         private static PowerButton _forcePlotButton;
         private static PowerButton _forceUnitCity;
         private static PowerButton _forceUnitCulture;
+        private static PowerButton _forceUnitJobButton;
         private static PowerButton _forceUnitLanguage;
+        private static PowerButton _forceUnitProfessionButton;
         private static PowerButton _forceUnitReligion;
+        private static PowerButton _languageMagnetButton;
         private static PowerButton _magnetPlusButton;
         private static PowerButton _magnetPlusEditorButton;
-        private static PowerButton _makeUnitKingButton;
-        private static PowerButton _makeUnitLeaderButton;
-        private static PowerButton _settleCityButton;
+        private static PowerButton _mergeCitiesButton;
+        private static PowerButton _pToPSettleCityButton;
+        private static PowerButton _religionMagnetButton;
+        private static PowerButton _subspeciesMagnetButton;
         private static PowersTab _tab;
 
         public static void Init() {
@@ -33,39 +40,60 @@ namespace Sandbox.UI {
                 SpriteTextureLoader.getSprite("ui/icons/tab_icon"));
             CreateButtons();
 
-            _tab._children = 26;
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
+                KingdomManipulation,
+                CityManipulation,
                 TraitDisablers,
                 MagnetPlus,
-                BuildingConstructor,
-                Plots,
-                KingdomManipulation
+                BuildingConstructor
             });
             _tab.AddPowerButton(UnitManipulation, _forceUnitCity);
             _tab.AddPowerButton(UnitManipulation, _forceUnitCulture);
             _tab.AddPowerButton(UnitManipulation, _forceUnitLanguage);
             _tab.AddPowerButton(UnitManipulation, _forceUnitReligion);
-            _tab.AddPowerButton(UnitManipulation, _makeUnitKingButton);
-            _tab.AddPowerButton(UnitManipulation, _makeUnitLeaderButton);
+            _tab.AddPowerButton(UnitManipulation, _forceUnitProfessionButton);
+            _tab.AddPowerButton(UnitManipulation, _forceUnitJobButton);
+            _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
+            _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
+            _tab.AddPowerButton(CityManipulation, _mergeCitiesButton);
+            _tab.AddPowerButton(CityManipulation, _pToPSettleCityButton);
+            _tab.AddPowerButton(CityManipulation, _directSettleCityButton);
             _tab.AddPowerButton(TraitDisablers, _disableClanTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableCultureTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableLanguageTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableReligionTraitsButton);
             _tab.AddPowerButton(MagnetPlus, _magnetPlusEditorButton);
             _tab.AddPowerButton(MagnetPlus, _magnetPlusButton);
+            _tab.AddPowerButton(MagnetPlus, _cultureMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _languageMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _religionMagnetButton);
+            _tab.AddPowerButton(MagnetPlus, _subspeciesMagnetButton);
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
-            _tab.AddPowerButton(Plots, _forcePlotButton);
-            _tab.AddPowerButton(KingdomManipulation, _settleCityButton);
             _tab.UpdateLayout();
+
+            Queue<int> indexes = new Queue<int>();
+            int offset = 0;
 
             for (int i = 0; i < _tab.gameObject.transform.childCount; i++) {
                 GameObject child = _tab.gameObject.transform.GetChild(i).gameObject;
 
-                if (child.name == "_line(Clone)") {
-                    child.transform.localPosition -= new Vector3(0, 72f);
+                if (child == _forceCityKingdomButton.gameObject
+                    || child == _mergeCitiesButton.gameObject
+                    || child == _disableClanTraitsButton.gameObject
+                    || child == _magnetPlusEditorButton.gameObject
+                    || child == _buildingConstructorButton.gameObject) {
+                    indexes.Enqueue(child.transform.GetSiblingIndex());
+                }
+
+                if (child.name == "_line(Clone)" && indexes.Count > 0) {
+                    child.transform.SetSiblingIndex(indexes.Dequeue() + offset);
+                    offset++;
                 }
             }
+
+            _forceUnitCity.gameObject.SetActive(false);
+            _forceUnitCity.gameObject.SetActive(true);
         }
 
         private static void CreateButtons() {
@@ -76,6 +104,22 @@ namespace Sandbox.UI {
                 .SetIcon("ui/icons/magnet_plus_icon")
                 .SetGodPower("magnet_plus")
                 .Build(out _magnetPlusButton)
+                .Next("culture_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/culture_magnet_icon")
+                .SetWindowId("culture_magnet")
+                .Build(out _cultureMagnetButton)
+                .Next("language_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/language_magnet_icon")
+                .SetWindowId("language_magnet")
+                .Build(out _languageMagnetButton)
+                .Next("religion_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/religion_magnet_icon")
+                .SetWindowId("religion_magnet")
+                .Build(out _religionMagnetButton)
+                .Next("subspecies_magnet", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/subspecies_magnet_icon")
+                .SetWindowId("subspecies_magnet")
+                .Build(out _subspeciesMagnetButton)
                 .Next("building_constructor", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/building_constructor_icon")
                 .SetWindowId("building_constructor")
@@ -96,38 +140,50 @@ namespace Sandbox.UI {
                 .SetIcon("ui/icons/force_religion_icon")
                 .SetWindowId("force_unit_religion")
                 .Build(out _forceUnitReligion)
-                .Next("make_unit_king", ButtonStyle.Small)
-                .SetIcon("ui/icons/force_unit_king_icon")
-                .SetGodPower("make_unit_king")
-                .Build(out _makeUnitKingButton)
-                .Next("make_unit_leader", ButtonStyle.Small)
-                .SetIcon("ui/icons/force_unit_leader_icon")
-                .SetGodPower("make_unit_leader")
-                .Build(out _makeUnitLeaderButton)
                 .Next("force_plot", ButtonStyle.Small)
                 .SetIcon("ui/icons/force_plot_icon")
                 .SetGodPower("force_plot")
                 .Build(out _forcePlotButton)
-                .Next("settle_city", ButtonStyle.Small)
-                .SetIcon("ui/icons/settle_city_icon")
-                .SetGodPower("settle_city")
-                .Build(out _settleCityButton)
-                .Next("disable_clan_traits", ButtonStyle.Small)
+                .Next("ptop_settle_city", ButtonStyle.Small)
+                .SetIcon("ui/icons/ptop_settle_city_icon")
+                .SetGodPower("ptop_settle_city")
+                .Build(out _pToPSettleCityButton)
+                .Next("direct_settle_city", ButtonStyle.Small)
+                .SetIcon("ui/icons/direct_settle_city_icon")
+                .SetGodPower("direct_settle_city")
+                .Build(out _directSettleCityButton)
+                .Next("disable_clan_traits", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/no_clan_traits_icon")
                 .SetWindowId("disable_clan_traits")
                 .Build(out _disableClanTraitsButton)
-                .Next("disable_culture_traits", ButtonStyle.Small)
+                .Next("disable_culture_traits", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/no_culture_traits_icon")
                 .SetWindowId("disable_culture_traits")
                 .Build(out _disableCultureTraitsButton)
-                .Next("disable_language_traits", ButtonStyle.Small)
+                .Next("disable_language_traits", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/no_language_traits_icon")
                 .SetWindowId("disable_language_traits")
                 .Build(out _disableLanguageTraitsButton)
-                .Next("disable_religion_traits", ButtonStyle.Small)
+                .Next("disable_religion_traits", ButtonStyle.SpecialRedBorder)
                 .SetIcon("ui/icons/no_religion_traits_icon")
                 .SetWindowId("disable_religion_traits")
-                .Build(out _disableReligionTraitsButton);
+                .Build(out _disableReligionTraitsButton)
+                .Next("force_city_kingdom", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/force_city_kingdom_icon")
+                .SetWindowId("force_city_kingdom")
+                .Build(out _forceCityKingdomButton)
+                .Next("force_unit_profession", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/force_unit_profession_icon")
+                .SetWindowId("force_unit_profession")
+                .Build(out _forceUnitProfessionButton)
+                .Next("force_unit_job", ButtonStyle.SpecialRedBorder)
+                .SetIcon("ui/icons/force_unit_job_icon")
+                .SetWindowId("force_unit_job")
+                .Build(out _forceUnitJobButton)
+                .Next("merge_cities", ButtonStyle.Small)
+                .SetIcon("ui/icons/merge_city_icon")
+                .SetGodPower("merge_cities")
+                .Build(out _mergeCitiesButton);
         }
     }
 }

@@ -14,14 +14,18 @@ namespace Sandbox {
             ForceUnitLanguage.Init();
             ForceUnitReligion.Init();
             ForceUnitPlot.Init();
-            SettleCity.Init();
-            MakeUnitKing.Init();
-            MakeUnitLeader.Init();
+            PToPSettleCity.Init();
+            DirectSettleCity.Init();
+            MergeCities.Init();
+            ForceCityKingdom.Init();
+            ForceUnitProfession.Init();
+            ForceUnitJob.Init();
             DisableClanTraitsWindow.CreateWindow("disable_clan_traits", "disable_clan_traits");
             DisableCultureTraitsWindow.CreateWindow("disable_culture_traits", "disable_culture_traits");
             DisableLanguageTraitsWindow.CreateWindow("disable_language_traits", "disable_language_traits");
             DisableReligionTraitsWindow.CreateWindow("disable_religion_traits", "disable_religion_traits");
             ForcedGeneEdit.Init();
+            InventoryEdit.Init();
             SandboxTab.Init();
         }
     }

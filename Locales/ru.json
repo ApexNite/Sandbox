@@ -78,7 +78,6 @@
     "forced_gene_input_default": "Выберите характеристику для редактирования",
     "forced_gene_no_mana": "Мана не может быть изменена",
     "forced_gene_reset": "Сброс",
-
     "human_magnet_toggle": "Вкл/Выкл Человек",
     "elf_magnet_toggle": "Вкл/Выкл Эльф",
     "orc_magnet_toggle": "Вкл/Выкл Орк",
@@ -198,7 +197,6 @@
     "lil_pumpkin_magnet_toggle": "Вкл/Выкл Тыквик",
     "assimilator_magnet_toggle": "Вкл/Выкл Ассимилятор",
     "bioblob_magnet_toggle": "Вкл/Выкл Биоблоб",
-
     "boat_fishing_magnet_toggle": "Вкл/Выкл рыбацкая лодка",
     "boat_transport_human_magnet_toggle": "Вкл/Выкл транспортная лодка Людей",
     "boat_transport_orc_magnet_toggle": "Вкл/Выкл транспортная лодка Орков",
@@ -253,7 +251,6 @@
     "boat_transport_bandit_magnet_toggle": "Вкл/Выкл транспортная лодка Бандитов",
     "boat_transport_alien_magnet_toggle": "Вкл/Выкл транспортная лодка Пришельцев",
     "boat_transport_greg_magnet_toggle": "Вкл/Выкл транспортная лодка Грегов",
-
     "boat_trading_human_magnet_toggle": "Вкл/Выкл торговая лодка Людей",
     "boat_trading_orc_magnet_toggle": "Вкл/Выкл торговая лодка Орков",
     "boat_trading_elf_magnet_toggle": "Вкл/Выкл торговая лодка Эльфов",
@@ -307,7 +304,6 @@
     "boat_trading_bandit_magnet_toggle": "Вкл/Выкл торговая лодка Бандитов",
     "boat_trading_alien_magnet_toggle": "Вкл/Выкл торговая лодка Пришельцев",
     "boat_trading_greg_magnet_toggle": "Вкл/Выкл торговая лодка Грегов",
-
     "zombie_magnet_toggle": "Вкл/Выкл Зомби",
     "zombie_human_magnet_toggle": "Вкл/Выкл Зомби Человек",
     "zombie_elf_magnet_toggle": "Вкл/Выкл Зомби Эльф",
@@ -400,7 +396,6 @@
     "zombie_civ_seal_magnet_toggle": "Вкл/Выкл Зомби Морской котик",
     "zombie_civ_unicorn_magnet_toggle": "Вкл/Выкл Зомби Панкорог",
     "zombie_greg_magnet_toggle": "Вкл/Выкл Зомби Грег",
-
     "place_tree_green_1": "Поставить Зеленое дерево 1",
     "place_tree_green_2": "Поставить Зеленое дерево 2",
     "place_tree_green_3": "Поставить Зеленое дерево 3",
@@ -502,7 +497,6 @@
     "place_biomass": "Поставить Биомассу",
     "place_super_pumpkin": "Поставить Супертыкву",
     "place_cybercore": "Поставить Кибер-ядро",
-
     "place_fishing_docks_human": "Поставить Рыбацкий Порт Человек",
     "place_watch_tower_human": "Поставить Сторожевую Вышку Человек",
     "place_docks_human": "Поставить Порт Человек",
@@ -522,7 +516,6 @@
     "place_hall_human_0": "Поставить Ратушу 0 Человек",
     "place_hall_human_1": "Поставить Ратушу 1 Человек",
     "place_hall_human_2": "Поставить Ратушу 2 Человек",
-
     "place_watch_tower_orc": "Поставить Сторожевую Вышку Орк",
     "place_fishing_docks_orc": "Поставить Рыбацкий Порт Орк",
     "place_docks_orc": "Поставить Порт Орк",
@@ -542,7 +535,6 @@
     "place_hall_orc_0": "Поставить Ратушу 0 Орк",
     "place_hall_orc_1": "Поставить Ратушу 1 Орк",
     "place_hall_orc_2": "Поставить Ратушу 2 Орк",
-
     "place_watch_tower_elf": "Поставить Сторожевую Вышку Эльф",
     "place_fishing_docks_elf": "Поставить Рыбацкий Порт Эльф",
     "place_docks_elf": "Поставить Порт Эльф",
@@ -562,7 +554,6 @@
     "place_hall_elf_0": "Поставить Ратушу 0 Эльф",
     "place_hall_elf_1": "Поставить Ратушу 1 Эльф",
     "place_hall_elf_2": "Поставить Ратушу 2 Эльф",
-
     "place_watch_tower_dwarf": "Поставить Сторожевую Вышку Дварф",
     "place_fishing_docks_dwarf": "Поставить Рыбацкий Порт Дварф",
     "place_docks_dwarf": "Поставить Порт Дварф",
@@ -582,7 +573,6 @@
     "place_hall_dwarf_0": "Поставить Ратушу 0 Дварф",
     "place_hall_dwarf_1": "Поставить Ратушу 1 Дварф",
     "place_hall_dwarf_2": "Поставить Ратушу 2 Дварф",
-
     "place_fishing_docks_civ_necromancer": "Поставить Рыбацкий Порт Некромант",
     "place_docks_civ_necromancer": "Поставить Порт Некромант",
     "place_house_civ_necromancer_0": "Поставить Дом Некромант",
@@ -592,7 +582,6 @@
     "place_temple_civ_necromancer": "Поставить Храм Некромант",
     "place_library_civ_necromancer": "Поставить Библиотеку Некромант",
     "place_barracks_civ_necromancer": "Поставить Казармы Некромант",
-
     "place_fishing_docks_civ_alien": "Поставить Рыбацкий Порт Пришелец",
     "place_docks_civ_alien": "Поставить Порт Пришелец",
     "place_house_civ_alien_0": "Поставить Дом Пришелец",
@@ -602,7 +591,6 @@
     "place_temple_civ_alien": "Поставить Храм Пришелец",
     "place_library_civ_alien": "Поставить Библиотеку Пришелец",
     "place_barracks_civ_alien": "Поставить Казармы Пришелец",
-
     "place_fishing_docks_civ_druid": "Поставить Рыбацкий Порт Друид",
     "place_docks_civ_druid": "Поставить Порт Друид",
     "place_house_civ_druid_0": "Поставить Дом Друид",
@@ -612,7 +600,6 @@
     "place_temple_civ_druid": "Поставить Храм Друид",
     "place_library_civ_druid": "Поставить Библиотеку Друид",
     "place_barracks_civ_druid": "Поставить Казармы Друид",
-
     "place_fishing_docks_civ_bee": "Поставить Рыбацкий Порт Пчела",
     "place_docks_civ_bee": "Поставить Порт Пчела",
     "place_house_civ_bee_0": "Поставить Дом Пчела",
@@ -622,7 +609,6 @@
     "place_temple_civ_bee": "Поставить Храм Пчела",
     "place_library_civ_bee": "Поставить Библиотеку Пчела",
     "place_barracks_civ_bee": "Поставить Казармы Пчела",
-
     "place_fishing_docks_civ_beetle": "Поставить Рыбацкий Док Навозников",
     "place_docks_civ_beetle": "Поставить Док Навозников",
     "place_house_civ_beetle_0": "Поставить Дом Навозников",
@@ -632,7 +618,6 @@
     "place_temple_civ_beetle": "Поставить Храм Навозников",
     "place_library_civ_beetle": "Поставить Библиотеку Навозников",
     "place_barracks_civ_beetle": "Поставить Казармы Навозников",
-
     "place_fishing_docks_civ_seal": "Поставить Рыбацкий Док Морских котиков",
     "place_docks_civ_seal": "Поставить Док Морских котиков",
     "place_house_civ_seal_0": "Поставить Дом Морских котиков",
@@ -642,7 +627,6 @@
     "place_temple_civ_seal": "Поставить Храм Морских котиков",
     "place_library_civ_seal": "Поставить Библиотеку Морских котиков",
     "place_barracks_civ_seal": "Поставить Казармы Морских котиков",
-
     "place_fishing_docks_civ_unicorn": "Поставить Рыбацкий Док Панкорогов",
     "place_docks_civ_unicorn": "Поставить Док Панкорогов",
     "place_house_civ_unicorn_0": "Поставить Дом Панкорогов",
@@ -652,7 +636,6 @@
     "place_temple_civ_unicorn": "Поставить Храм Панкорогов",
     "place_library_civ_unicorn": "Поставить Библиотеку Панкорогов",
     "place_barracks_civ_unicorn": "Поставить Казармы Панкорогов",
-
     "place_fishing_docks_civ_ghost": "Поставить Рыбацкий Док Призраков",
     "place_docks_civ_ghost": "Поставить Док Призраков",
     "place_house_civ_ghost_0": "Поставить Дом Призраков",
@@ -662,7 +645,6 @@
     "place_temple_civ_ghost": "Поставить Храм Призраков",
     "place_library_civ_ghost": "Поставить Библиотеку Призраков",
     "place_barracks_civ_ghost": "Поставить Казармы Призраков",
-
     "place_fishing_docks_civ_fairy": "Поставить Рыбацкий Док Фей",
     "place_docks_civ_fairy": "Поставить Док Фей",
     "place_house_civ_fairy_0": "Поставить Дом Фей",
@@ -672,7 +654,6 @@
     "place_temple_civ_fairy": "Поставить Храм Фей",
     "place_library_civ_fairy": "Поставить Библиотеку Фей",
     "place_barracks_civ_fairy": "Поставить Казармы Фей",
-
     "place_fishing_docks_civ_evil_mage": "Поставить Рыбацкий Док Зломагов",
     "place_docks_civ_evil_mage": "Поставить Док Зломагов",
     "place_house_civ_evil_mage_0": "Поставить Дом Зломагов",
@@ -682,7 +663,6 @@
     "place_temple_civ_evil_mage": "Поставить Храм Зломагов",
     "place_library_civ_evil_mage": "Поставить Библиотеку Зломагов",
     "place_barracks_civ_evil_mage": "Поставить Казармы Зломагов",
-
     "place_fishing_docks_civ_white_mage": "Поставить Рыбацкий Док Добромагов",
     "place_docks_civ_white_mage": "Поставить Док Добромагов",
     "place_house_civ_white_mage_0": "Поставить Дом Добромагов",
@@ -692,7 +672,6 @@
     "place_temple_civ_white_mage": "Поставить Храм Добромагов",
     "place_library_civ_white_mage": "Поставить Библиотеку Добромагов",
     "place_barracks_civ_white_mage": "Поставить Казармы Добромагов",
-
     "place_fishing_docks_civ_bandit": "Поставить Рыбацкий Док Бандитов",
     "place_docks_civ_bandit": "Поставить Док Бандитов",
     "place_house_civ_bandit_0": "Поставить Дом Бандитов",
@@ -702,7 +681,6 @@
     "place_temple_civ_bandit": "Поставить Храм Бандитов",
     "place_library_civ_bandit": "Поставить Библиотеку Бандитов",
     "place_barracks_civ_bandit": "Поставить Казармы Бандитов",
-
     "place_fishing_docks_civ_demon": "Поставить Рыбацкий Док Демонов",
     "place_docks_civ_demon": "Поставить Док Демонов",
     "place_house_civ_demon_0": "Поставить Дом Демонов",
@@ -712,7 +690,6 @@
     "place_temple_civ_demon": "Поставить Храм Демонов",
     "place_library_civ_demon": "Поставить Библиотеку Демонов",
     "place_barracks_civ_demon": "Поставить Казармы Демонов",
-
     "place_fishing_docks_civ_cold_one": "Поставить Рыбацкий Док Холодков",
     "place_docks_civ_cold_one": "Поставить Док Холодков",
     "place_house_civ_cold_one_0": "Поставить Дом Холодков",
@@ -722,7 +699,6 @@
     "place_temple_civ_cold_one": "Поставить Храм Холодков",
     "place_library_civ_cold_one": "Поставить Библиотеку Холодков",
     "place_barracks_civ_cold_one": "Поставить Казармы Холодков",
-
     "place_fishing_docks_civ_angle": "Поставить Рыбацкий Док Святого Угольника",
     "place_docks_civ_angle": "Поставить Док Святого Угольника",
     "place_house_civ_angle_0": "Поставить Дом Святого Угольника",
@@ -732,7 +708,6 @@
     "place_temple_civ_angle": "Поставить Храм Святого Угольника",
     "place_library_civ_angle": "Поставить Библиотеку Святого Угольника",
     "place_barracks_civ_angle": "Поставить Казармы Святого Угольника",
-
     "place_fishing_docks_civ_snowman": "Поставить Рыбацкий Док Снеговиков",
     "place_docks_civ_snowman": "Поставить Док Снеговиков",
     "place_house_civ_snowman_0": "Поставить Дом Снеговиков",
@@ -742,7 +717,6 @@
     "place_temple_civ_snowman": "Поставить Храм Снеговиков",
     "place_library_civ_snowman": "Поставить Библиотеку Снеговиков",
     "place_barracks_civ_snowman": "Поставить Казармы Снеговиков",
-
     "place_fishing_docks_civ_garlic_man": "Поставить Рыбацкий Док Чеснарей",
     "place_docks_civ_garlic_man": "Поставить Док Чеснарей",
     "place_house_civ_garlic_man_0": "Поставить Дом Чеснарей",
@@ -752,7 +726,6 @@
     "place_temple_civ_garlic_man": "Поставить Храм Чеснарей",
     "place_library_civ_garlic_man": "Поставить Библиотеку Чеснарей",
     "place_barracks_civ_garlic_man": "Поставить Казармы Чеснарей",
-
     "place_fishing_docks_civ_lemon_man": "Поставить Рыбацкий Док Лимонных челов",
     "place_docks_civ_lemon_man": "Поставить Док Лимонных челов",
     "place_house_civ_lemon_man_0": "Поставить Дом Лимонных челов",
@@ -762,7 +735,6 @@
     "place_temple_civ_lemon_man": "Поставить Храм Лимонных челов",
     "place_library_civ_lemon_man": "Поставить Библиотеку Лимонных челов",
     "place_barracks_civ_lemon_man": "Поставить Казармы Лимонных челов",
-
     "place_fishing_docks_civ_acid_gentleman": "Поставить Рыбацкий Док Кислотных Джентльменов",
     "place_docks_civ_acid_gentleman": "Поставить Док Кислотных Джентльменов",
     "place_house_civ_acid_gentleman_0": "Поставить Дом Кислотных Джентльменов",
@@ -772,7 +744,6 @@
     "place_temple_civ_acid_gentleman": "Поставить Храм Кислотных Джентльменов",
     "place_library_civ_acid_gentleman": "Поставить Библиотеку Кислотных Джентльменов",
     "place_barracks_civ_acid_gentleman": "Поставить Казармы Кислотных Джентльменов",
-
     "place_fishing_docks_civ_crystal_golem": "Поставить Рыбацкий Док Кристальных Големов",
     "place_docks_civ_crystal_golem": "Поставить Док Кристальных Големов",
     "place_house_civ_crystal_golem_0": "Поставить Дом Кристальных Големов",
@@ -782,7 +753,6 @@
     "place_temple_civ_crystal_golem": "Поставить Храм Кристальных Големов",
     "place_library_civ_crystal_golem": "Поставить Библиотеку Кристальных Големов",
     "place_barracks_civ_crystal_golem": "Поставить Казармы Кристальных Големов",
-
     "place_fishing_docks_civ_candy_man": "Поставить Рыболовный Порт Сладкого чела",
     "place_docks_civ_candy_man": "Поставить Порт Сладкого чела",
     "place_house_civ_candy_man_0": "Поставить Дом Сладкого чела",
@@ -792,7 +762,6 @@
     "place_temple_civ_candy_man": "Поставить Храм Сладкого чела",
     "place_library_civ_candy_man": "Поставить Библиотеку Сладкого чела",
     "place_barracks_civ_candy_man": "Поставить Казармы Сладкого чела",
-
     "place_fishing_docks_civ_liliar": "Поставить Рыболовный Порт Луллии",
     "place_docks_civ_liliar": "Поставить Порт Луллии",
     "place_house_civ_liliar_0": "Поставить Дом Луллии",
@@ -802,7 +771,6 @@
     "place_temple_civ_liliar": "Поставить Храм Луллии",
     "place_library_civ_liliar": "Поставить Библиотеку Луллии",
     "place_barracks_civ_liliar": "Поставить Казармы Луллии",
-
     "place_fishing_docks_civ_greg": "Поставить Рыболовный Порт Грега",
     "place_docks_civ_greg": "Поставить Порт Грега",
     "place_house_civ_greg_0": "Поставить Дом Грега",
@@ -812,7 +780,6 @@
     "place_temple_civ_greg": "Поставить Храм Грега",
     "place_library_civ_greg": "Поставить Библиотеку Грега",
     "place_barracks_civ_greg": "Поставить Казармы Грега",
-
     "place_fishing_docks_civ_cat": "Поставить Рыболовный Порт Мяуморфа",
     "place_docks_civ_cat": "Поставить Порт Мяуморфа",
     "place_house_civ_cat_0": "Поставить Дом Мяуморфа",
@@ -822,7 +789,6 @@
     "place_temple_civ_cat": "Поставить Храм Мяуморфа",
     "place_library_civ_cat": "Поставить Библиотеку Мяуморфа",
     "place_barracks_civ_cat": "Поставить Казармы Мяуморфа",
-
     "place_fishing_docks_civ_dog": "Поставить Рыболовный Порт Псовлян",
     "place_docks_civ_dog": "Поставить Порт Псовлян",
     "place_house_civ_dog_0": "Поставить Дом Псовлян",
@@ -832,7 +798,6 @@
     "place_temple_civ_dog": "Поставить Храм Псовлян",
     "place_library_civ_dog": "Поставить Библиотеку Псовлян",
     "place_barracks_civ_dog": "Поставить Казармы Псовлян",
-
     "place_fishing_docks_civ_chicken": "Поставить Рыболовный Порт Клюворезов",
     "place_docks_civ_chicken": "Поставить Порт Клюворезов",
     "place_house_civ_chicken_0": "Поставить Дом Клюворезов",
@@ -842,7 +807,6 @@
     "place_temple_civ_chicken": "Поставить Храм Клюворезов",
     "place_library_civ_chicken": "Поставить Библиотеку Клюворезов",
     "place_barracks_civ_chicken": "Поставить Казармы Клюворезов",
-
     "place_fishing_docks_civ_rabbit": "Поставить Рыболовный Порт Прыгопов",
     "place_docks_civ_rabbit": "Поставить Порт Прыгопов",
     "place_house_civ_rabbit_0": "Поставить Дом Прыгопов",
@@ -852,7 +816,6 @@
     "place_temple_civ_rabbit": "Поставить Храм Прыгопов",
     "place_library_civ_rabbit": "Поставить Библиотеку Прыгопов",
     "place_barracks_civ_rabbit": "Поставить Казармы Прыгопов",
-
     "place_fishing_docks_civ_monkey": "Поставить Рыболовный Порт Монке",
     "place_docks_civ_monkey": "Поставить Порт Монке",
     "place_house_civ_monkey_0": "Поставить Дом Монке",
@@ -862,7 +825,6 @@
     "place_temple_civ_monkey": "Поставить Храм Монке",
     "place_library_civ_monkey": "Поставить Библиотеку Монке",
     "place_barracks_civ_monkey": "Поставить Казармы Монке",
-
     "place_fishing_docks_civ_fox": "Поставить Рыболовный Порт Хитролап",
     "place_docks_civ_fox": "Поставить Порт Хитролап",
     "place_house_civ_fox_0": "Поставить Дом Хитролап",
@@ -872,7 +834,6 @@
     "place_temple_civ_fox": "Поставить Храм Хитролап",
     "place_library_civ_fox": "Поставить Библиотеку Хитролап",
     "place_barracks_civ_fox": "Поставить Казармы Хитролап",
-
     "place_fishing_docks_civ_sheep": "Поставить Рыболовный Порт Баакен",
     "place_docks_civ_sheep": "Поставить Порт Баакен",
     "place_house_civ_sheep_0": "Поставить Дом Баакен",
@@ -882,7 +843,6 @@
     "place_temple_civ_sheep": "Поставить Храм Баакен",
     "place_library_civ_sheep": "Поставить Библиотеку Баакен",
     "place_barracks_civ_sheep": "Поставить Казармы Баакен",
-
     "place_fishing_docks_civ_cow": "Поставить Рыболовный Порт Мутавр",
     "place_docks_civ_cow": "Поставить Порт Мутавр",
     "place_house_civ_cow_0": "Поставить Дом Мутавр",
@@ -892,7 +852,6 @@
     "place_temple_civ_cow": "Поставить Храм Мутавр",
     "place_library_civ_cow": "Поставить Библиотеку Мутавр",
     "place_barracks_civ_cow": "Поставить Казармы Мутавр",
-
     "place_fishing_docks_civ_armadillo": "Поставить Рыболовный Порт Армалдар",
     "place_docks_civ_armadillo": "Поставить Порт Армалдар",
     "place_house_civ_armadillo_0": "Поставить Дом Армалдар",
@@ -902,7 +861,6 @@
     "place_temple_civ_armadillo": "Поставить Храм Армалдар",
     "place_library_civ_armadillo": "Поставить Библиотеку Армалдар",
     "place_barracks_civ_armadillo": "Поставить Казармы Армалдар",
-
     "place_fishing_docks_civ_wolf": "Поставить Рыболовный Порт Зловой",
     "place_docks_civ_wolf": "Поставить Порт Зловой",
     "place_house_civ_wolf_0": "Поставить Дом Зловой",
@@ -912,7 +870,6 @@
     "place_temple_civ_wolf": "Поставить Храм Зловой",
     "place_library_civ_wolf": "Поставить Библиотеку Зловой",
     "place_barracks_civ_wolf": "Поставить Казармы Зловой",
-
     "place_fishing_docks_civ_bear": "Поставить Рыболовный Порт Грухт",
     "place_docks_civ_bear": "Поставить Порт Грухт",
     "place_house_civ_bear_0": "Поставить Дом Грухт",
@@ -922,7 +879,6 @@
     "place_temple_civ_bear": "Поставить Храм Грухт",
     "place_library_civ_bear": "Поставить Библиотеку Грухт",
     "place_barracks_civ_bear": "Поставить Казармы Грухт",
-
     "place_fishing_docks_civ_rhino": "Поставить Рыболовный Порт Бронерог",
     "place_docks_civ_rhino": "Поставить Порт Бронерог",
     "place_house_civ_rhino_0": "Поставить Дом Бронерог",
@@ -932,7 +888,6 @@
     "place_temple_civ_rhino": "Поставить Храм Бронерог",
     "place_library_civ_rhino": "Поставить Библиотеку Бронерог",
     "place_barracks_civ_rhino": "Поставить Казармы Бронерог",
-
     "place_fishing_docks_civ_buffalo": "Поставить Рыболовный Порт Буффолон",
     "place_docks_civ_buffalo": "Поставить Порт Буффолон",
     "place_house_civ_buffalo_0": "Поставить Дом Буффолон",
@@ -942,7 +897,6 @@
     "place_temple_civ_buffalo": "Поставить Храм Буффолон",
     "place_library_civ_buffalo": "Поставить Библиотеку Буффолон",
     "place_barracks_civ_buffalo": "Поставить Казармы Буффолон",
-
     "place_fishing_docks_civ_hyena": "Поставить Рыболовный Порт Коглол",
     "place_docks_civ_hyena": "Поставить Порт Коглол",
     "place_house_civ_hyena_0": "Поставить Дом Коглол",
@@ -952,7 +906,6 @@
     "place_temple_civ_hyena": "Поставить Храм Коглол",
     "place_library_civ_hyena": "Поставить Библиотеку Коглол",
     "place_barracks_civ_hyena": "Поставить Казармы Коглол",
-
     "place_fishing_docks_civ_rat": "Поставить Рыболовный Порт Щелкуна",
     "place_docks_civ_rat": "Поставить Порт Щелкуна",
     "place_house_civ_rat_0": "Поставить Дом Щелкуна",
@@ -962,7 +915,6 @@
     "place_temple_civ_rat": "Поставить Храм Щелкуна",
     "place_library_civ_rat": "Поставить Библиотеку Щелкуна",
     "place_barracks_civ_rat": "Поставить Казармы Щелкуна",
-
     "place_fishing_docks_civ_alpaca": "Поставить Рыболовный Порт Чармаки",
     "place_docks_civ_alpaca": "Поставить Порт Чармаки",
     "place_house_civ_alpaca_0": "Поставить Дом Чармаки",
@@ -972,7 +924,6 @@
     "place_temple_civ_alpaca": "Поставить Храм Чармаки",
     "place_library_civ_alpaca": "Поставить Библиотеку Чармаки",
     "place_barracks_civ_alpaca": "Поставить Казармы Чармаки",
-
     "place_fishing_docks_civ_capybara": "Поставить Рыболовный Порт Чиллбары",
     "place_docks_civ_capybara": "Поставить Порт Чиллбары",
     "place_house_civ_capybara_0": "Поставить Дом Чиллбары",
@@ -982,7 +933,6 @@
     "place_temple_civ_capybara": "Поставить Храм Чиллбары",
     "place_library_civ_capybara": "Поставить Библиотеку Чиллбары",
     "place_barracks_civ_capybara": "Поставить Казармы Чиллбары",
-
     "place_fishing_docks_civ_goat": "Поставить Рыболовный Порт Козерлоров",
     "place_docks_civ_goat": "Поставить Порт Козерлоров",
     "place_house_civ_goat_0": "Поставить Дом Козерлоров",
@@ -992,7 +942,6 @@
     "place_temple_civ_goat": "Поставить Храм Козерлоров",
     "place_library_civ_goat": "Поставить Библиотеку Козерлоров",
     "place_barracks_civ_goat": "Поставить Казармы Козерлоров",
-
     "place_fishing_docks_civ_scorpion": "Поставить Рыболовный Порт Скорпа",
     "place_docks_civ_scorpion": "Поставить Порт Скорпа",
     "place_house_civ_scorpion_0": "Поставить Дом Скорпа",
@@ -1002,7 +951,6 @@
     "place_temple_civ_scorpion": "Поставить Храм Скорпа",
     "place_library_civ_scorpion": "Поставить Библиотеку Скорпа",
     "place_barracks_civ_scorpion": "Поставить Казармы Скорпа",
-
     "place_fishing_docks_civ_crab": "Поставить Рыболовный Порт Краблина",
     "place_docks_civ_crab": "Поставить Порт Краблина",
     "place_house_civ_crab_0": "Поставить Дом Краблина",
@@ -1012,7 +960,6 @@
     "place_temple_civ_crab": "Поставить Храм Краблина",
     "place_library_civ_crab": "Поставить Библиотеку Краблина",
     "place_barracks_civ_crab": "Поставить Казармы Краблина",
-
     "place_fishing_docks_civ_penguin": "Поставить Рыболовный Порт Клювика",
     "place_docks_civ_penguin": "Поставить Порт Клювика",
     "place_house_civ_penguin_0": "Поставить Дом Клювика",
@@ -1022,7 +969,6 @@
     "place_temple_civ_penguin": "Поставить Храм Клювика",
     "place_library_civ_penguin": "Поставить Библиотеку Клювика",
     "place_barracks_civ_penguin": "Поставить Казармы Клювика",
-
     "place_fishing_docks_civ_turtle": "Поставить Рыболовный Порт Туртока",
     "place_docks_civ_turtle": "Поставить Порт Туртока",
     "place_house_civ_turtle_0": "Поставить Дом Туртока",
@@ -1032,7 +978,6 @@
     "place_temple_civ_turtle": "Поставить Храм Туртока",
     "place_library_civ_turtle": "Поставить Библиотеку Туртока",
     "place_barracks_civ_turtle": "Поставить Казармы Туртока",
-
     "place_fishing_docks_civ_crocodile": "Поставить Рыболовный Порт Рептилоида",
     "place_docks_civ_crocodile": "Поставить Порт Рептилоида",
     "place_house_civ_crocodile_0": "Поставить Дом Рептилоида",
@@ -1042,7 +987,6 @@
     "place_temple_civ_crocodile": "Поставить Храм Рептилоида",
     "place_library_civ_crocodile": "Поставить Библиотеку Рептилоида",
     "place_barracks_civ_crocodile": "Поставить Казармы Рептилоида",
-
     "place_fishing_docks_civ_snake": "Поставить Рыболовный Порт Снэка",
     "place_docks_civ_snake": "Поставить Порт Снэка",
     "place_house_civ_snake_0": "Поставить Дом Снэка",
@@ -1052,7 +996,6 @@
     "place_temple_civ_snake": "Поставить Храм Снэка",
     "place_library_civ_snake": "Поставить Библиотеку Снэка",
     "place_barracks_civ_snake": "Поставить Казармы Снэка",
-
     "place_fishing_docks_civ_frog": "Поставить Рыболовный Порт Квакуна",
     "place_docks_civ_frog": "Поставить Порт Квакуна",
     "place_house_civ_frog_0": "Поставить Дом Квакуна",
@@ -1062,7 +1005,6 @@
     "place_temple_civ_frog": "Поставить Храм Квакуна",
     "place_library_civ_frog": "Поставить Библиотеку Квакуна",
     "place_barracks_civ_frog": "Поставить Казармы Квакуна",
-
     "place_fishing_docks_civ_piranha": "Поставить Рыболовный Порт Зубни",
     "place_docks_civ_piranha": "Поставить Порт Зубни",
     "place_house_civ_piranha_0": "Поставить Дом Зубни",
@@ -1072,7 +1014,6 @@
     "place_temple_civ_piranha": "Поставить Храм Зубни",
     "place_library_civ_piranha": "Поставить Библиотеку Зубни",
     "place_barracks_civ_piranha": "Поставить Казармы Зубни",
-
     "witchs_vein_clan_trait_toggle": "Вкл/Выкл Вены ведьмы",
     "we_are_legion_clan_trait_toggle": "Вкл/Выкл Мы — легион",
     "warlocks_vein_clan_trait_toggle": "Вкл/Выкл Вены колдуна",
@@ -1102,7 +1043,6 @@
     "blood_of_eons_clan_trait_toggle": "Вкл/Выкл Кровь эонов",
     "best_five_clan_trait_toggle": "Вкл/Выкл Пятерка лучших",
     "antimatter_blood_clan_trait_toggle": "Вкл/Выкл Антиматериальная кровь",
-
     "youth_reverence_culture_trait_toggle": "Вкл/Выкл Юные дарования",
     "xenophobic_culture_trait_toggle": "Вкл/Выкл Ксенофобы",
     "xenophiles_culture_trait_toggle": "Вкл/Выкл Ксенофилы",
@@ -1181,7 +1121,6 @@
     "armorsmith_mastery_culture_trait_toggle": "Вкл/Выкл Мастерство создания доспехов",
     "animal_whisperers_culture_trait_toggle": "Вкл/Выкл Заклинатели зверей",
     "ancestors_knowledge_culture_trait_toggle": "Вкл/Выкл Знания предков",
-
     "words_of_madness_language_trait_toggle": "Вкл/Выкл Слова Безумия",
     "stylish_writing_language_trait_toggle": "Вкл/Выкл Стильное Письмо",
     "strict_spelling_language_trait_toggle": "Вкл/Выкл Строгую Орфографию",
@@ -1208,7 +1147,6 @@
     "chilly_font_language_trait_toggle": "Вкл/Выкл Холодный Шрифт",
     "beautiful_calligraphy_language_trait_toggle": "Вкл/Выкл Красивую Каллиграфию",
     "ancient_runes_language_trait_toggle": "Вкл/Выкл Древние Руны",
-
     "zeal_of_conquest_religion_trait_toggle": "Вкл/выкл Рвение завоевания",
     "teleport_religion_trait_toggle": "Вкл/выкл Телепорт",
     "summon_tornado_religion_trait_toggle": "Вкл/выкл Призыв торнадо",
@@ -1249,7 +1187,6 @@
     "cast_blood_rain_religion_trait_toggle": "Вкл/выкл Кровавый дождь",
     "bloodline_bond_religion_trait_toggle": "Вкл/выкл Родословная связь",
     "blessed_by_ashes_religion_trait_toggle": "Вкл/выкл Благословенный пеплом",
-
     "human_magnet_toggle_description": "",
     "elf_magnet_toggle_description": "",
     "orc_magnet_toggle_description": "",

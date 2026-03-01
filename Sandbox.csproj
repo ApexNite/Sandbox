@@ -66,36 +66,50 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\BuildingConstructor.cs" />
+    <Compile Include="Features\DirectSettleCity.cs" />
+    <Compile Include="Features\ForceCityKingdom.cs" />
     <Compile Include="Features\ForcedGeneEdit.cs" />
     <Compile Include="Features\ForceUnitCity.cs" />
     <Compile Include="Features\ForceUnitCulture.cs" />
+    <Compile Include="Features\ForceUnitJob.cs" />
     <Compile Include="Features\ForceUnitLanguage.cs" />
     <Compile Include="Features\ForceUnitPlot.cs" />
+    <Compile Include="Features\ForceUnitProfession.cs" />
     <Compile Include="Features\ForceUnitReligion.cs" />
+    <Compile Include="Features\InventoryEdit.cs" />
     <Compile Include="Features\MagnetPlus.cs" />
-    <Compile Include="Features\MakeUnitKing.cs" />
-    <Compile Include="Features\MakeUnitLeader.cs" />
-    <Compile Include="Features\SettleCity.cs" />
+    <Compile Include="Features\MergeCities.cs" />
+    <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\MetaObjectWithTraits_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Toolkit\Graphics\ButtonBuilder.cs" />
     <Compile Include="Toolkit\Graphics\ButtonStyle.cs" />
     <Compile Include="UI\BuildingConstructorSelector.cs" />
+    <Compile Include="UI\CultureMagnetSelector.cs" />
     <Compile Include="UI\DisableClanTraitsWindow.cs" />
     <Compile Include="UI\DisableCultureTraitsWindow.cs" />
     <Compile Include="UI\DisableLanguageTraitsWindow.cs" />
     <Compile Include="UI\DisableReligionTraitsWindow.cs" />
+    <Compile Include="UI\ForceCityKingdomSelector.cs" />
     <Compile Include="UI\ForcedGeneInput.cs" />
     <Compile Include="UI\ForceUnitCitySelector.cs" />
     <Compile Include="UI\ForceUnitCultureSelector.cs" />
+    <Compile Include="UI\ForceUnitJobSelector.cs" />
     <Compile Include="UI\ForceUnitLanguageSelector.cs" />
+    <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />
+    <Compile Include="UI\LanguageMagnetSelector.cs" />
     <Compile Include="UI\MagnetPlusEditor.cs" />
+    <Compile Include="UI\FoodEditor.cs" />
+    <Compile Include="UI\ReligionMagnetSelector.cs" />
+    <Compile Include="UI\ResourceEditor.cs" />
     <Compile Include="UI\SandboxTab.cs" />
+    <Compile Include="UI\SubspeciesMagnetSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameResources\ui\icons\building_constructor_icon.png" />
+    <Content Include="GameResources\ui\icons\direct_settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\force_culture_icon.png" />
     <Content Include="GameResources\ui\icons\force_language_icon.png" />
     <Content Include="GameResources\ui\icons\force_plot_icon.png" />
@@ -105,10 +119,12 @@
     <Content Include="GameResources\ui\icons\force_unit_leader_icon.png" />
     <Content Include="GameResources\ui\icons\icon_select_finger.png" />
     <Content Include="GameResources\ui\icons\magnet_plus_icon.png" />
+    <Content Include="GameResources\ui\icons\green_plus.png" />
     <Content Include="GameResources\ui\icons\no_clan_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_culture_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_language_traits_icon.png" />
     <Content Include="GameResources\ui\icons\no_religion_traits_icon.png" />
+    <Content Include="GameResources\ui\icons\ptop_settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\settle_city_icon.png" />
     <Content Include="GameResources\ui\icons\tab_icon.png" />
     <Content Include="icon.png" />
@@ -119,6 +135,7 @@
     <None Include="Locales\ch.json" />
     <None Include="Locales\cz.json" />
     <None Include="Locales\en.json" />
+    <None Include="Locales\ru.json" />
     <None Include="mod.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
