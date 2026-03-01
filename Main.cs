@@ -16,6 +16,7 @@ namespace Sandbox {
             ForceUnitPlot.Init();
             PToPSettleCity.Init();
             DirectSettleCity.Init();
+            MergeCities.Init();
             ForceCityKingdom.Init();
             ForceUnitProfession.Init();
             ForceUnitJob.Init();

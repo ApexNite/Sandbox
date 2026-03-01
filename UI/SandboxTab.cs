@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Sandbox.UI {
     internal static class SandboxTab {
         private const string BuildingConstructor = "building_constructor";
+        private const string CityManipulation = "city_manipulation";
         private const string KingdomManipulation = "kingdom_manipulation";
         private const string MagnetPlus = "magnet_plus";
         private const string TraitDisablers = "trait_disablers";
@@ -42,6 +43,7 @@ namespace Sandbox.UI {
             _tab.SetLayout(new List<string> {
                 UnitManipulation,
                 KingdomManipulation,
+                CityManipulation,
                 TraitDisablers,
                 MagnetPlus,
                 BuildingConstructor
@@ -53,10 +55,10 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitProfessionButton);
             _tab.AddPowerButton(UnitManipulation, _forceUnitJobButton);
             _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
-            //_tab.AddPowerButton(KingdomManipulation, _mergeCitiesButton);
             _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
-            _tab.AddPowerButton(KingdomManipulation, _pToPSettleCityButton);
-            _tab.AddPowerButton(KingdomManipulation, _directSettleCityButton);
+            _tab.AddPowerButton(CityManipulation, _mergeCitiesButton);
+            _tab.AddPowerButton(CityManipulation, _pToPSettleCityButton);
+            _tab.AddPowerButton(CityManipulation, _directSettleCityButton);
             _tab.AddPowerButton(TraitDisablers, _disableClanTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableCultureTraitsButton);
             _tab.AddPowerButton(TraitDisablers, _disableLanguageTraitsButton);
@@ -77,6 +79,7 @@ namespace Sandbox.UI {
                 GameObject child = _tab.gameObject.transform.GetChild(i).gameObject;
 
                 if (child == _forceCityKingdomButton.gameObject
+                    || child == _mergeCitiesButton.gameObject
                     || child == _disableClanTraitsButton.gameObject
                     || child == _magnetPlusEditorButton.gameObject
                     || child == _buildingConstructorButton.gameObject) {
@@ -178,7 +181,7 @@ namespace Sandbox.UI {
                 .SetWindowId("force_unit_job")
                 .Build(out _forceUnitJobButton)
                 .Next("merge_cities", ButtonStyle.Small)
-                .SetIcon("ui/icons/iconQuestionMark")
+                .SetIcon("ui/icons/merge_city_icon")
                 .SetGodPower("merge_cities")
                 .Build(out _mergeCitiesButton);
         }

@@ -78,6 +78,7 @@
     <Compile Include="Features\ForceUnitReligion.cs" />
     <Compile Include="Features\InventoryEdit.cs" />
     <Compile Include="Features\MagnetPlus.cs" />
+    <Compile Include="Features\MergeCities.cs" />
     <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\MetaObjectWithTraits_Patch.cs" />
