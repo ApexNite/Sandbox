@@ -18,8 +18,8 @@ namespace Sandbox.UI {
         private static PowerButton _disableCultureTraitsButton;
         private static PowerButton _disableLanguageTraitsButton;
         private static PowerButton _disableReligionTraitsButton;
-        private static PowerButton _forceCityKingdomButton;
         private static PowerButton _forceCapitalButton;
+        private static PowerButton _forceCityKingdomButton;
         private static PowerButton _forcePlotButton;
         private static PowerButton _forceUnitCity;
         private static PowerButton _forceUnitCulture;
@@ -57,6 +57,7 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(UnitManipulation, _forceUnitJobButton);
             _tab.AddPowerButton(KingdomManipulation, _forceCityKingdomButton);
             _tab.AddPowerButton(KingdomManipulation, _forcePlotButton);
+            _tab.AddPowerButton(KingdomManipulation, _forceCapitalButton);
             _tab.AddPowerButton(CityManipulation, _mergeCitiesButton);
             _tab.AddPowerButton(CityManipulation, _pToPSettleCityButton);
             _tab.AddPowerButton(CityManipulation, _directSettleCityButton);
@@ -71,7 +72,6 @@ namespace Sandbox.UI {
             _tab.AddPowerButton(MagnetPlus, _religionMagnetButton);
             _tab.AddPowerButton(MagnetPlus, _subspeciesMagnetButton);
             _tab.AddPowerButton(BuildingConstructor, _buildingConstructorButton);
-            _tab.AddPowerButton(BuildingConstructor, _forceCapitalButton);
             _tab.UpdateLayout();
 
             Queue<int> indexes = new Queue<int>();
