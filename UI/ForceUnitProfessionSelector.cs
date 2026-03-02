@@ -11,8 +11,8 @@ namespace Sandbox.UI {
     internal class ForceUnitProfessionSelector : AutoLayoutWindow<ForceUnitProfessionSelector> {
         private readonly Dictionary<string, string> _sprites = new Dictionary<string, string> {
             { "make_unit_nothing", "ui/icons/profession_nothing_icon" },
-            { "make_unit_king", "ui/icons/iconCrown" },
-            { "make_unit_leader", "ui/icons/iconCrownSilver" },
+            { "make_unit_king", "ui/icons/force_unit_king_icon" },
+            { "make_unit_leader", "ui/icons/force_unit_leader_icon" },
             { "make_unit_warrior", "ui/icons/profession_warrior_icon" },
             { "make_unit_unit", "ui/icons/iconPopulation" }
         };
