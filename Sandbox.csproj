@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Features\BuildingConstructor.cs" />
     <Compile Include="Features\DirectSettleCity.cs" />
+    <Compile Include="Features\ForceCityCapital.cs" />
     <Compile Include="Features\ForceCityKingdom.cs" />
     <Compile Include="Features\ForcedGeneEdit.cs" />
     <Compile Include="Features\ForceUnitCity.cs" />
