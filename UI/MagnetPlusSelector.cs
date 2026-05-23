@@ -29,7 +29,9 @@ namespace Sandbox.UI {
         }
 
         private static Sprite GetBoatSprite(ActorAsset actorAsset) {
-            return SpriteTextureLoader.getSpriteList($"actors/boats/{actorAsset.boat_texture_id}")[0];
+            Sprite[] sprites = SpriteTextureLoader.getSpriteList($"actors/boats/{actorAsset.boat_texture_id}");
+
+            return sprites.Length == 0 ? null : sprites[0];
         }
 
         private static bool HasNoUniqueIcon(ActorAsset actorAsset) {
