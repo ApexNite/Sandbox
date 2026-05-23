@@ -101,7 +101,7 @@
     <Compile Include="UI\ForceUnitProfessionSelector.cs" />
     <Compile Include="UI\ForceUnitReligionSelector.cs" />
     <Compile Include="UI\LanguageMagnetSelector.cs" />
-    <Compile Include="UI\MagnetPlusEditor.cs" />
+    <Compile Include="UI\MagnetPlusSelector.cs" />
     <Compile Include="UI\FoodEditor.cs" />
     <Compile Include="UI\ReligionMagnetSelector.cs" />
     <Compile Include="UI\ResourceEditor.cs" />

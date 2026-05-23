@@ -6,7 +6,7 @@ using NeoModLoader.General.UI.Window.Utils.Extensions;
 using UnityEngine;
 
 namespace Sandbox.UI {
-    internal class MagnetPlusEditor : AutoLayoutWindow<MagnetPlusEditor> {
+    internal class MagnetPlusSelector : AutoLayoutWindow<MagnetPlusSelector> {
         private AutoGridLayoutGroup _grid;
         private List<string> _loadedActors;
 
