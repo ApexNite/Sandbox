@@ -74,7 +74,7 @@
     "make_unit_warrior_description": "Make a unit into a warrior for their village",
     "make_unit_unit_description": "Make a unit into a civilian for their village",
     "make_unit_nothing_description": "Make a unit into the \"nothing\" profession (be careful using this)",
-    "j_make_unit_builder_description": "Make a unit into a Builder",
+    "j_make_unit_builder_description": "Make a unit into a builder",
     "j_make_unit_gatherer_bushes_description": "Make a unit into a bush gatherer",
     "j_make_unit_gatherer_herbs_description": "Make a unit into an herb gatherer",
     "j_make_unit_gatherer_honey_description": "Make a unit into a honey gatherer",
