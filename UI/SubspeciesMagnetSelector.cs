@@ -84,6 +84,10 @@ namespace Sandbox.UI {
         internal class SubspeciesVisualElement : MonoBehaviour {
             private Subspecies _subspecies;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedSubspecies = _subspecies; });
+            }
+
             public void SetSubspecies(Subspecies subspecies) {
                 _subspecies = subspecies;
 
@@ -93,11 +97,7 @@ namespace Sandbox.UI {
 
                 Image icon = transform.Find("Icon").GetComponent<Image>();
                 icon.enabled = true;
-                icon.sprite = SpriteTextureLoader.getSprite("ui/icons/iconSpecies");
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedSubspecies = _subspecies; });
+                icon.sprite = subspecies.getSpriteIcon();
             }
         }
     }
