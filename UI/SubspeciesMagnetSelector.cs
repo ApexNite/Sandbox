@@ -58,6 +58,7 @@ namespace Sandbox.UI {
                 typeof(SubspeciesVisualElement));
             _elements = new List<GameObject>();
 
+            _elementPrefab.transform.SetParent(Main.Instance.transform);
             _elementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _elementPrefab.GetComponent<Image>();
