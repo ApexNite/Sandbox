@@ -82,7 +82,6 @@
     <Compile Include="Features\MergeCities.cs" />
     <Compile Include="Features\PToPSettleCity.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Patches\MetaObjectWithTraits_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Toolkit\Graphics\ButtonBuilder.cs" />
     <Compile Include="Toolkit\Graphics\ButtonStyle.cs" />

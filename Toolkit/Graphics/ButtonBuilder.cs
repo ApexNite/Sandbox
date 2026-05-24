@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Sandbox.Toolkit.Graphics {
@@ -7,6 +8,8 @@ namespace Sandbox.Toolkit.Graphics {
         public ButtonBuilder(string id, ButtonStyle style) {
             Next(id, style);
         }
+
+        private UnityAction Action { get; set; }
 
         private string DescriptionKey { get; set; }
 
@@ -20,6 +23,8 @@ namespace Sandbox.Toolkit.Graphics {
 
         private ButtonStyle Style { get; set; }
 
+        private string TextKey { get; set; }
+
         private string TitleKey { get; set; }
 
         private PowerButtonType Type { get; set; }
@@ -28,20 +33,15 @@ namespace Sandbox.Toolkit.Graphics {
 
         public ButtonBuilder Build(out PowerButton powerButton) {
             GameObject buttonObject = new GameObject(Id);
-            GameObject iconObject = new GameObject("Icon");
 
             Image image = buttonObject.AddComponent<Image>();
             TipButton tipButton = buttonObject.AddComponent<TipButton>();
             powerButton = buttonObject.AddComponent<PowerButton>();
-            Image icon = iconObject.AddComponent<Image>();
-            buttonObject.AddComponent<Button>();
+            Button button = buttonObject.AddComponent<Button>();
 
-            iconObject.transform.SetParent(buttonObject.transform);
 
             buttonObject.GetComponent<RectTransform>().sizeDelta = Scale;
-            iconObject.GetComponent<RectTransform>().sizeDelta = Scale - new Vector2(4f, 4f);
             buttonObject.transform.localScale = Vector3.one;
-            iconObject.transform.localScale = Vector3.one;
 
             switch (Style) {
                 case ButtonStyle.Small:
@@ -70,13 +70,40 @@ namespace Sandbox.Toolkit.Graphics {
                     throw new ArgumentOutOfRangeException();
             }
 
-            icon.sprite = Icon;
 
             tipButton.textOnClick = TitleKey;
             tipButton.textOnClickDescription = DescriptionKey;
 
             powerButton.type = Type;
-            powerButton.icon = icon;
+            powerButton._button = button;
+
+            if (Icon != null) {
+                GameObject iconObject = new GameObject("Icon");
+                Image icon = iconObject.AddComponent<Image>();
+
+                iconObject.transform.SetParent(buttonObject.transform);
+                iconObject.GetComponent<RectTransform>().sizeDelta = Scale - new Vector2(4f, 4f);
+                iconObject.transform.localScale = Vector3.one;
+
+                icon.sprite = Icon;
+
+                powerButton.icon = icon;
+            }
+
+            if (TextKey != null) {
+                GameObject textObject = new GameObject("Text");
+                Text text = textObject.AddComponent<Text>();
+
+                textObject.transform.SetParent(buttonObject.transform);
+                textObject.GetComponent<RectTransform>().sizeDelta = Scale;
+                textObject.transform.localScale = Vector3.one;
+
+                text.font = LocalizedTextManager.current_font;
+                text.fontSize = 10;
+                text.supportRichText = true;
+                text.text = LocalizedTextManager.getText(TextKey);
+                text.alignment = TextAnchor.MiddleCenter;
+            }
 
             switch (Type) {
                 case PowerButtonType.Active:
@@ -88,6 +115,9 @@ namespace Sandbox.Toolkit.Graphics {
 
                     break;
                 case PowerButtonType.Library:
+                    button.onClick.AddListener(Action);
+
+                    break;
                 case PowerButtonType.Options:
                 case PowerButtonType.BrushSize:
                 case PowerButtonType.BrushSizeMain:
@@ -106,10 +136,17 @@ namespace Sandbox.Toolkit.Graphics {
             Icon = Resources.Load<Sprite>("");
             Id = id;
             Scale = StyleToScale(style);
-            Type = (PowerButtonType) (-1);
+            Type = (PowerButtonType)(-1);
             Style = style;
             TitleKey = id;
             WindowId = string.Empty;
+
+            return this;
+        }
+
+        public ButtonBuilder SetAction(UnityAction action) {
+            Type = PowerButtonType.Library;
+            Action = action;
 
             return this;
         }
@@ -130,6 +167,18 @@ namespace Sandbox.Toolkit.Graphics {
 
         public ButtonBuilder SetIcon(string path) {
             Icon = Resources.Load<Sprite>(path);
+
+            return this;
+        }
+
+        public ButtonBuilder SetScale(Vector2 scale) {
+            Scale = scale;
+
+            return this;
+        }
+
+        public ButtonBuilder SetText(string key) {
+            TextKey = key;
 
             return this;
         }
