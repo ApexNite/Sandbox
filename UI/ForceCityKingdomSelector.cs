@@ -51,10 +51,11 @@ namespace Sandbox.UI {
             _vertLayoutGroup = this.BeginVertGroup();
             _forceKingdomButton = PowerButtonCreator.CreateGodPowerButton("force_city_kingdom",
                 SpriteTextureLoader.getSprite("ui/icons/force_unit_city_icon"));
-            _kingdomElementPrefab = new GameObject("KingdomElementPrefab", typeof(Image), typeof(Button),
+            _kingdomElementPrefab = new GameObject("kingdomElementPrefab", typeof(Image), typeof(Button),
                 typeof(KingdomVisualElement));
             _kingdomElements = new List<GameObject>();
 
+            _kingdomElementPrefab.transform.SetParent(Main.Instance.transform);
             _kingdomElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _kingdomElementPrefab.GetComponent<Image>();
@@ -84,6 +85,10 @@ namespace Sandbox.UI {
         internal class KingdomVisualElement : MonoBehaviour {
             private Kingdom _kingdom;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedKingdom = _kingdom; });
+            }
+
             public void SetKingdom(Kingdom kingdom) {
                 _kingdom = kingdom;
 
@@ -92,10 +97,6 @@ namespace Sandbox.UI {
                 text.text = kingdom.name;
 
                 transform.Find("Banner").GetComponent<KingdomBanner>().load(kingdom);
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedKingdom = _kingdom; });
             }
         }
     }

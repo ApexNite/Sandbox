@@ -51,6 +51,7 @@ namespace Sandbox.UI {
                 typeof(LanguageVisualElement));
             _languageElements = new List<GameObject>();
 
+            _languageElementPrefab.transform.SetParent(Main.Instance.transform);
             _languageElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _languageElementPrefab.GetComponent<Image>();
@@ -80,6 +81,10 @@ namespace Sandbox.UI {
         internal class LanguageVisualElement : MonoBehaviour {
             private Language _language;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedLanguage = _language; });
+            }
+
             public void SetLanguage(Language language) {
                 _language = language;
 
@@ -88,10 +93,6 @@ namespace Sandbox.UI {
                 text.text = language.name;
 
                 transform.Find("Banner").GetComponent<LanguageBanner>().load(language);
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedLanguage = _language; });
             }
         }
     }

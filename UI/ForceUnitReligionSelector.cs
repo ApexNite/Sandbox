@@ -51,6 +51,7 @@ namespace Sandbox.UI {
                 typeof(ReligionVisualElement));
             _religionElements = new List<GameObject>();
 
+            _religionElementPrefab.transform.SetParent(Main.Instance.transform);
             _religionElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _religionElementPrefab.GetComponent<Image>();
@@ -80,6 +81,10 @@ namespace Sandbox.UI {
         internal class ReligionVisualElement : MonoBehaviour {
             private Religion _religion;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedReligion = _religion; });
+            }
+
             public void SetReligion(Religion religion) {
                 _religion = religion;
 
@@ -88,10 +93,6 @@ namespace Sandbox.UI {
                 text.text = religion.name;
 
                 transform.Find("Banner").GetComponent<ReligionBanner>().load(religion);
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedReligion = _religion; });
             }
         }
     }
