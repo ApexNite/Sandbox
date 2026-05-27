@@ -84,7 +84,10 @@ namespace Sandbox.Features {
                 if (worldTile.zone.city != null && actor.kingdom != worldTile.zone.city.kingdom) {
                     worldTile.zone.city.joinAnotherKingdom(actor.kingdom, true);
 
-                    if (actor.city.getPopulationPeople() == 1 || actor.isKing()) {
+                    if (actor.city == null) {
+                        actor.joinCity(worldTile.zone.city);
+                        ShowSettleTip("settle_change_city");
+                    } else if (actor.city.getPopulationPeople() == 1 || actor.isKing()) {
                         Actor actorCreateToPreserveOgE =
                             World.world.units.createNewUnit(actor.asset.id, worldTile, true, 3f, actor.subspecies);
                         actorCreateToPreserveOgE.joinCity(worldTile.zone.city);
@@ -100,7 +103,10 @@ namespace Sandbox.Features {
                 _selectedKingdom = actor.kingdom;
                 _lastCityFounded = World.world.cities.buildNewCity(actor, worldTile.zone);
 
-                if (actor.city.getPopulationPeople() == 1 || actor.isKing()) {
+                if (actor.city == null) {
+                    actor.joinCity(worldTile.zone.city);
+                    ShowSettleTip("settle_settled");
+                } else if (actor.city.getPopulationPeople() == 1 || actor.isKing()) {
                     Actor actorCreateToPreserveOgN =
                         World.world.units.createNewUnit(actor.asset.id, worldTile, true, 3f, actor.subspecies);
                     actorCreateToPreserveOgN.joinCity(worldTile.zone.city);

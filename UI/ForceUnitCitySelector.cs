@@ -47,10 +47,11 @@ namespace Sandbox.UI {
             _vertLayoutGroup = this.BeginVertGroup();
             _forceCityButton = PowerButtonCreator.CreateGodPowerButton("force_unit_city",
                 SpriteTextureLoader.getSprite("ui/icons/force_unit_city_icon"));
-            _cityElementPrefab = new GameObject("CityElementPrefab", typeof(Image), typeof(Button),
+            _cityElementPrefab = new GameObject("cityElementPrefab", typeof(Image), typeof(Button),
                 typeof(CityVisualElement));
             _cityElements = new List<GameObject>();
 
+            _cityElementPrefab.transform.SetParent(Main.Instance.transform);
             _cityElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _cityElementPrefab.GetComponent<Image>();
@@ -79,6 +80,10 @@ namespace Sandbox.UI {
         internal class CityVisualElement : MonoBehaviour {
             private City _city;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedCity = _city; });
+            }
+
             public void SetCity(City city) {
                 _city = city;
 
@@ -87,10 +92,6 @@ namespace Sandbox.UI {
                 text.text = city.name;
 
                 transform.Find("Banner").GetComponent<CityBanner>().load(city);
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedCity = _city; });
             }
         }
     }

@@ -51,6 +51,7 @@ namespace Sandbox.UI {
                 typeof(CultureVisualElement));
             _cultureElements = new List<GameObject>();
 
+            _cultureElementPrefab.transform.SetParent(Main.Instance.transform);
             _cultureElementPrefab.GetComponent<RectTransform>().sizeDelta = new Vector2(200f, 35f);
 
             Image image = _cultureElementPrefab.GetComponent<Image>();
@@ -80,6 +81,10 @@ namespace Sandbox.UI {
         internal class CultureVisualElement : MonoBehaviour {
             private Culture _culture;
 
+            private void Awake() {
+                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedCulture = _culture; });
+            }
+
             public void SetCulture(Culture culture) {
                 _culture = culture;
 
@@ -88,10 +93,6 @@ namespace Sandbox.UI {
                 text.text = culture.name;
 
                 transform.Find("Banner").GetComponent<CultureBanner>().load(culture);
-            }
-
-            private void Awake() {
-                gameObject.GetComponent<Button>().onClick.AddListener(() => { LastSelectedCulture = _culture; });
             }
         }
     }
