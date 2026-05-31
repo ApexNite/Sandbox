@@ -28,7 +28,7 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(Language), nameof(Language.default_traits), MethodType.Getter)]
         [HarmonyPrefix]
         public static bool get_default_traits(ref Language __instance, ref List<string> __result) {
-            __result = __instance.getActorAsset().default_language_traits.Where(LanguageTraitEnabled).ToList();
+            __result = __instance.getActorAsset().default_language_traits?.Where(LanguageTraitEnabled).ToList();
 
             return false;
         }
