@@ -28,7 +28,7 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(Culture), nameof(Culture.default_traits), MethodType.Getter)]
         [HarmonyPrefix]
         public static bool get_default_traits(ref Culture __instance, ref List<string> __result) {
-            __result = __instance.getActorAsset().default_culture_traits.Where(CultureTraitEnabled).ToList();
+            __result = __instance.getActorAsset().default_culture_traits?.Where(CultureTraitEnabled).ToList();
 
             return false;
         }

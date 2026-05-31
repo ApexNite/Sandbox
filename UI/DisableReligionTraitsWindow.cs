@@ -28,7 +28,7 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(Religion), nameof(Religion.default_traits), MethodType.Getter)]
         [HarmonyPrefix]
         public static bool get_default_traits(ref Religion __instance, ref List<string> __result) {
-            __result = __instance.getActorAsset().default_religion_traits.Where(ReligionTraitEnabled).ToList();
+            __result = __instance.getActorAsset().default_religion_traits?.Where(ReligionTraitEnabled).ToList();
 
             return false;
         }

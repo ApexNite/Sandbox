@@ -28,7 +28,7 @@ namespace Sandbox.UI {
         [HarmonyPatch(typeof(Clan), nameof(Clan.default_traits), MethodType.Getter)]
         [HarmonyPrefix]
         public static bool get_default_traits(ref Clan __instance, ref List<string> __result) {
-            __result = __instance.getActorAsset().default_clan_traits.Where(ClanTraitEnabled).ToList();
+            __result = __instance.getActorAsset().default_clan_traits?.Where(ClanTraitEnabled).ToList();
 
             return false;
         }
