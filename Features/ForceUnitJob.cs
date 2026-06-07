@@ -36,6 +36,8 @@ namespace Sandbox.Features {
                 power.drop_id = id;
                 power.cached_drop_asset = dropAsset;
                 power.unselect_when_window = false;
+
+                CitizenJobLibrary.attacker.unit_job_default = CitizenJobLibrary.attacker.id;
             }
         }
 
