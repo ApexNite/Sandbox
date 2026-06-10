@@ -38,6 +38,9 @@ namespace Sandbox.Features {
             resourcesContentContainer.GetComponent<RectTransform>().sizeDelta = new Vector3(210f, 28f);
             foodContentContainer.GetComponent<RectTransform>().sizeDelta = new Vector3(210f, 28f);
 
+            contentResourcesContainer.gameObject.AddComponent<RectMask2D>();
+            contentFoodContainer.gameObject.AddComponent<RectMask2D>();
+
             resourcesLayout.childControlWidth = true;
             resourcesLayout.childControlHeight = true;
             resourcesLayout.childForceExpandWidth = false;
@@ -58,7 +61,12 @@ namespace Sandbox.Features {
             foodLayoutElement.preferredWidth = 14;
             foodLayoutElement.preferredHeight = 14;
             resourcesGridLayoutElement.flexibleWidth = 0;
+            resourcesGridLayoutElement.preferredWidth = 190;
+            resourcesGridLayoutElement.minWidth = 190;
+
             foodGridLayoutElement.flexibleWidth = 0;
+            foodGridLayoutElement.preferredWidth = 190;
+            foodGridLayoutElement.minWidth = 190;
             spacerLayoutElement.flexibleWidth = 1;
             spacerLayoutElement.preferredWidth = 0;
 
