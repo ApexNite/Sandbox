@@ -48,7 +48,7 @@ namespace Sandbox.Features {
                 hold_action = true,
                 highlight = true,
                 sound_drawing = "event:/SFX/POWERS/DivineMagnet",
-                unselect_when_window = true,
+                unselect_when_window = true
             };
             magnetPlusPower.click_brush_action += UseMagnetPlus;
             magnetPlusPower.click_brush_action += AssetManager.powers.flashBrushPixelsDuringClick;
@@ -108,6 +108,42 @@ namespace Sandbox.Features {
             return true;
         }
 
+        private static bool PassesFilter(Actor actor) {
+            if (actor.isRekt()) {
+                return false;
+            }
+
+            switch (_filterMode) {
+                case MagnetFilterMode.Culture: {
+                    Culture target = CultureMagnetSelector.LastSelectedCulture;
+                    Culture current = actor.culture;
+
+                    return target != null && current != null && current == target;
+                }
+                case MagnetFilterMode.Religion: {
+                    Religion target = ReligionMagnetSelector.LastSelectedReligion;
+                    Religion current = actor.religion;
+
+                    return target != null && current != null && current == target;
+                }
+                case MagnetFilterMode.Language: {
+                    Language target = LanguageMagnetSelector.LastSelectedLanguage;
+                    Language current = actor.language;
+
+                    return target != null && current != null && current == target;
+                }
+                case MagnetFilterMode.Subspecies: {
+                    Subspecies target = SubspeciesMagnetSelector.LastSelectedSubspecies;
+                    Subspecies current = actor.subspecies;
+
+                    return target != null && current != null && current == target;
+                }
+                case MagnetFilterMode.None:
+                default:
+                    return true;
+            }
+        }
+
         private void MagnetAction(bool pFromUpdate, WorldTile pTile = null) {
             if (ScrollWindow.isWindowActive()) {
                 dropPickedUnits();
@@ -161,46 +197,6 @@ namespace Sandbox.Features {
             }
         }
 
-        private static bool PassesFilter(Actor actor) {
-            if (actor.isRekt()) {
-                return false;
-            }
-
-            switch (_filterMode) {
-                case MagnetFilterMode.Culture:
-                {
-                    Culture target = CultureMagnetSelector.LastSelectedCulture;
-                    Culture current = actor.culture;
-
-                    return target != null && current != null && current == target;
-                }
-                case MagnetFilterMode.Religion:
-                {
-                    Religion target = ReligionMagnetSelector.LastSelectedReligion;
-                    Religion current = actor.religion;
-
-                    return target != null && current != null && current == target;
-                }
-                case MagnetFilterMode.Language:
-                {
-                    Language target = LanguageMagnetSelector.LastSelectedLanguage;
-                    Language current = actor.language;
-
-                    return target != null && current != null && current == target;
-                }
-                case MagnetFilterMode.Subspecies:
-                {
-                    Subspecies target = SubspeciesMagnetSelector.LastSelectedSubspecies;
-                    Subspecies current = actor.subspecies;
-
-                    return target != null && current != null && current == target;
-                }
-                case MagnetFilterMode.None:
-                default:
-                    return true;
-            }
-        }
-
         private void PickupUnits(WorldTile worldTile) {
             BrushPixelData[] brushPixel = Config.current_brush_data.pos;
 
@@ -223,7 +219,7 @@ namespace Sandbox.Features {
                             return;
                         }
 
-                        if (PlayerConfig.dict.ContainsKey(id)
+                        if (_filterMode == MagnetFilterMode.None && PlayerConfig.dict.ContainsKey(id)
                             && !PlayerConfig.optionBoolEnabled(id)
                             && !(actor.asset.unit_zombie && PlayerConfig.optionBoolEnabled("zombie_magnet_toggle"))) {
                             return;
